@@ -1,11 +1,68 @@
 ﻿/*------------------ The navbar overlaps the body onless it has some padding. the padding is removed on mobil devices------*/
 
 body{
-    padding-top: 40px;
+    padding-top: 5em;
+    background-color: #336699;
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1000px) {
     body{
         padding-top: 0px;
     }
 }
+
+.carou
+{
+    padding-top: 40px;
+} 
+
+/* set the background-color to red */
+.navbar-inner
+{
+    background-color: #336699;
+    /* remove the gradient */
+    background-image: none;
+    /* set font color to white */
+    color: white;
+    border: none;
+} 
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}  
+
+/* menu items */
+
+    /* set the background of the menu items to pink and default color to white */
+
+        .navbar .nav > li > a {   
+        color: white;
+        }
+
+
+    /* set hover and focus to lightblue */
+    .navbar .nav > li > a:focus,
+    .navbar .nav > li > a:hover {
+      background-color: #5B789C;
+      color: white;
+    }
+        /* set active item to darkgreen */
+        .navbar .nav > .active > a,
+        .navbar .nav > .active > a:hover,
+        .navbar .nav > .active > a:focus {
+
+          background-color: #608F9C;
+          color: white;
+#5B789C
+        }
+
+    /* set font color and background of the project name (brand) */
+
+    .navbar .brand 
+    {
+        color: white;
+    }
