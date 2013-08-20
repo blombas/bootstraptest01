@@ -17,6 +17,11 @@ body{
     padding-top: 40px;
 } 
 
+.navbar .brand{
+    font-family: 'Stoke', serif;
+    font-size: 26px;
+}
+
 /* set the background-color to red */
 .navbar-inner
 {
