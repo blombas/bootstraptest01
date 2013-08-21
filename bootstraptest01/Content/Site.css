@@ -2,20 +2,43 @@
 
 body{
     padding-top: 5em;
-    background-color: #336699;
+    background-color: #FBFEF6;
 }
 
+.front
+{
+    background: #2e6170; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #2e6170 0%, #3f889e 100%, #4ea9c4 100%, #fbfef6 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2e6170), color-stop(100%,#3f889e), color-stop(100%,#4ea9c4), color-stop(100%,#fbfef6)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6170', endColorstr='#fbfef6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+    z-index: -100;
+    margin-top: -40px;
+
+}
+
+.section-featured
+{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 @media screen and (max-width: 1000px) {
     body{
         padding-top: 0px;
     }
+    .front{
+        margin-top: -20px;
+    }
 }
-
-.carou
-{
-    padding-top: 40px;
-} 
+ 
 
 .navbar .brand{
     font-family: 'Stoke', serif;
@@ -25,11 +48,11 @@ body{
 /* set the background-color to red */
 .navbar-inner
 {
-    background-color: #336699;
+    background-color: #26515E;
     /* remove the gradient */
     background-image: none;
-    /* set font color to white */
-    color: white;
+    /* set font color to #FBFEF6 */
+    color: #FBFEF6;
     border: none;
 } 
 
@@ -42,32 +65,84 @@ body{
 
 /* menu items */
 
-    /* set the background of the menu items to pink and default color to white */
+    /* set the background of the menu items to pink and default color to #FBFEF6 */
 
         .navbar .nav > li > a {   
-        color: white;
+        color: #FBFEF6;
         }
 
 
     /* set hover and focus to lightblue */
     .navbar .nav > li > a:focus,
     .navbar .nav > li > a:hover {
-      background-color: #5B789C;
-      color: white;
+      background-color: #4493AB;
+      color: #FBFEF6;
     }
         /* set active item to darkgreen */
         .navbar .nav > .active > a,
         .navbar .nav > .active > a:hover,
         .navbar .nav > .active > a:focus {
 
-          background-color: #608F9C;
-          color: white;
-#5B789C
+          background-color: #2E6373;
+          color: #FBFEF6;
         }
 
     /* set font color and background of the project name (brand) */
 
     .navbar .brand 
     {
-        color: white;
+        color: #FBFEF6;
     }
+
+    .text-featured
+    {
+        color: #FBFEF6;
+    }
+
+    .image-featured
+    {
+        margin-top: 15px;
+    }
+
+    .btn-featured {
+    margin-top: 20px;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #A12F3C;
+    *background-color: #A12F3C;
+    background-image: -moz-linear-gradient(top, #BF3847, #A12F3C);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#BF3847), to(#A12F3C));
+    background-image: -webkit-linear-gradient(top, #BF3847, #A12F3C);
+    background-image: -o-linear-gradient(top, #BF3847, #A12F3C);
+    background-image: linear-gradient(to bottom, #BF3847, #A12F3C);
+    background-repeat: repeat-x;
+    border-color: #A12F3C;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BF3847', endColorstr='#A12F3C', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-featured:hover,
+.btn-featured:active,
+.btn-featured.active,
+.btn-featured.disabled,
+.btn-featured[disabled] {
+    color: #FFFFFF;
+    background-color: #A12F3C;
+    *background-color: #003bb3;
+}
+
+.btn-link
+{
+    margin-top: 10px;
+    color: #A4AB93;
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.btn-link:hover,
+.btn-link:active,
+.btn-link:focus
+{
+    color: #FBFEF6;
+}

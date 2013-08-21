@@ -13,30 +13,30 @@ namespace bootstraptest01 {
     public partial class Default {
         
         /// <summary>
-        /// Image1 control.
+        /// Buttonfeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Button Buttonfeatured;
         
         /// <summary>
-        /// Image2 control.
+        /// ImageFeatured control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image ImageFeatured;
         
         /// <summary>
-        /// Image3 control.
+        /// ButtonEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image3;
+        protected global::System.Web.UI.WebControls.Button ButtonEvents;
     }
 }
