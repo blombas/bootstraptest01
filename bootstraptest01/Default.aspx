@@ -15,8 +15,8 @@
                     <asp:Button ID="Buttonfeatured" runat="server" Text="LÆS MERE" CssClass=" btn btn-featured btn-large" />
                    <%-- <p><asp:LinkButton ID="LinkButtonFeatured" runat="server" CssClass="btn btn-link">SE EVENTS</asp:LinkButton></p>--%>         
                 </div>
-                <div class="span8 offset1">
-                    <asp:Image ID="ImageFeatured" runat="server" AlternateText="demo" ImageUrl="http://lorempixel.com/750/240/nature" CssClass="image-featured img-rounded" />
+                <div class="span9">
+                    <asp:Image ID="ImageFeatured" runat="server" AlternateText="demo" ImageUrl="http://lorempixel.com/850/240/nature" CssClass="image-featured img-rounded" />
                 </div>
             </div>
         </section>
@@ -26,14 +26,17 @@
         <section class="main">
             <div class="container">
                 <hr />
-                <br />
-                <h3 class="text-featured">Romantiske events</h3>
+            
+                <h3 class="text-featured">Romantisk gåtur hvor du måske møder din kærlighed</h3>
                 <div class="row">
-                    <div class="span6">
+                    <div class="span3">
+                        <p class="text-featured">Igennem årtusinder har par mødtes under åben himmel i naturskønne omgivelser for at date. Man er mere afslappet og snakken glider nemmere. Romantikken blomstrer simpelthen nemmere når man er omgivet skønne omgivelser</p>
+                    </div>
+                    <div class="span3">
                         <p class="text-featured">Igennem årtusinder har par mødtes under åben himmel i naturskønne omgivelser for at date. Man er mere afslappet og snakken glider nemmere. Romantikken blomstrer simpelthen nemmere når man er omgivet skønne omgivelser</p>
                     </div>
                     <div class="span4 offset2">
-                        <strong><p class="well well-large text-center">
+                        <strong><p class="well text-center">
                             Mange andre singler ønsker at møde dig og gå en tur i romantiske omgivelser. Se om ikke et af vores events passer dig.<br />    
                             <asp:Button ID="ButtonEvents" runat="server" Text="SE ALLE EVENTS" CssClass="btn btn-featured pull-center" />
                         </p></strong>
