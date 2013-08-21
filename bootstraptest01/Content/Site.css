@@ -40,6 +40,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6170', end
     background-color: #EAEDE6;
 }
 
+.modal {
+    /* new custom width */
+    width: 700px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -320px;
+}
+
 @media screen and (max-width: 1000px) {
     body{
         padding-top: 0px;

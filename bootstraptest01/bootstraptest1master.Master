@@ -18,7 +18,8 @@
 
 <body>
     <form id="form1" runat="server">
-   
+
+   <!-- navbar -->
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -37,6 +38,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+    <!-- contact form -->
+        <div class="modal hide fade" id="modal-contact-form">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h3>Kontakt</h3>
+            </div>
+            <div class="modal-body form-horizontal pull-center">
+                <div class="control-group">         
+                    <asp:Label ID="LabelName" runat="server" Text="Navn:" CssClass="control-label" AssociatedControlID="TextBoxName"></asp:Label>
+
+                    <div class="controls">
+                        <asp:TextBox ID="TextBoxName" runat="server" Width="300"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="control-group">         
+                    <asp:Label ID="LabelEmail" runat="server" Text="Email:" CssClass="control-label" AssociatedControlID="TextBoxEmail"></asp:Label>
+
+                    <div class="controls">
+                        <asp:TextBox ID="TextBoxEmail" runat="server" Width="300"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="control-group">         
+                    <asp:Label ID="LabelMessage" runat="server" Text="Besked:" CssClass="control-label" AssociatedControlID="TextBoxMessage"></asp:Label>
+
+                    <div class="controls">
+                        <asp:TextBox ID="TextBoxMessage" runat="server" TextMode="MultiLine" Height="200" Width="300"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <asp:Button ID="ButtonMessage" runat="server" Text="Send" CssClass="btn btn-primary" />
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+              <a href="" data-dismiss="modal" class="btn">Cancel</a>
+          </div>
         </div>
   
      <asp:ContentPlaceHolder ID="FeaturedProducts" runat="server"></asp:ContentPlaceHolder> 
