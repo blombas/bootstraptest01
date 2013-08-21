@@ -35,7 +35,7 @@
                     <div class="span4 offset2">
                         <strong><p class="well well-large text-center">
                             Mange andre singler ønsker at møde dig og gå en tur i romantiske omgivelser. Se om ikke et af vores events passer dig.<br />    
-                            <asp:Button ID="ButtonEvents" runat="server" Text="SE ALLE EVENTS" CssClass="btn btn-small btn-featured pull-center" />
+                            <asp:Button ID="ButtonEvents" runat="server" Text="SE ALLE EVENTS" CssClass="btn btn-featured pull-center" />
                         </p></strong>
 
                     </div>
