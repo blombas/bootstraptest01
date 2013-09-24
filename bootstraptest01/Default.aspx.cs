@@ -13,11 +13,7 @@ namespace bootstraptest01
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var myEvent = (from ev in context.Events
-                          select ev).ToString();
-
-            LabelTest.Text = myEvent;
-
+           
         }
     }
 }

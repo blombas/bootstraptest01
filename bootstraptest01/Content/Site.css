@@ -3,10 +3,6 @@
 body{
     padding-top: 5em;
     background-color: #FBFEF6;
-}
-
-.front
-{
     background: #2e6170; /* Old browsers */
 background: -moz-radial-gradient(center, ellipse cover,  #2e6170 0%, #3f889e 100%, #4ea9c4 100%, #fbfef6 100%); /* FF3.6+ */
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2e6170), color-stop(100%,#3f889e), color-stop(100%,#4ea9c4), color-stop(100%,#fbfef6)); /* Chrome,Safari4+ */
@@ -15,12 +11,9 @@ background: -o-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#
 background: -ms-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* IE10+ */
 background: radial-gradient(ellipse at center,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6170', endColorstr='#fbfef6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
-    min-height: 650px;
-    margin-top: -40px;
-
 }
+
+
 
 .section-featured
 {
@@ -202,12 +195,25 @@ hr
     color: #FBFEF6;
 }
 
-.accordion-group{
-  border: none;
+#my-accordion
+{
+    margin-bottom:0;
 }
 
-.thumbnail{
-    border:none;
+.accordion-group{
+  border: none;
+  margin-bottom: 7px;
+}
+
+.accordion-heading
+{
+    border: none;
+    margin-bottom: 0;
+}
+
+.accordion-heading h3, .accordion-heading .my-summery, 
+{
+    margin-left: 10px;
 }
 
 .page-header{
@@ -216,4 +222,45 @@ hr
 
 .breadcrumb{
     background-color: #26515E;
+}
+
+.signup-for-event
+{
+    
+
+}
+
+.event-img
+{
+    margin-bottom: 10px;
+}
+
+.even
+{
+    background-color: #B0BBC2;
+}
+
+.uneven
+{
+    background-color: #99A2A8;
+}
+
+.text-info
+{
+    color: #46433A;
+    font-size: 1.2em;
+}
+
+.event-info 
+{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.event-signup-btn
+{
+    margin-left: 0px;
+    margin-top: 40px;
 }

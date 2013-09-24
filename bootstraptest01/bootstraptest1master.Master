@@ -31,7 +31,7 @@
                     </a>
                     <div class="collapse nav-collapse" >
                         <ul class="pull-right nav">
-                            <li><a href="#my-events">EVENTS</a></li>
+                            <li><a href="Events.aspx">EVENTS</a></li>
                             <li><a href="About.aspx">OM WALK DATING</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#modal-contact-form">CONTACT</a></li>
                         </ul>
@@ -102,39 +102,11 @@
                 setTimeout('$("#messageSent").hide();$("#contactForm").slideUp("slow")', 2000);
            }
 
-$(document).ready(function() {
-  function filterPath(string) {
-    return string
-      .replace(/^\//,'')
-      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-      .replace(/\/$/,'');
-  }
-  $('a[href*=#]').each(function() {
-    if ( filterPath(location.pathname) == filterPath(this.pathname)
-    && location.hostname == this.hostname
-    && this.hash.replace(/#/,'') ) {
-      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
-      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
-       if ($target) {
-         var targetOffset = $target.offset().top;
-         $(this).click(function() {
-           $('html, body').animate({scrollTop: targetOffset}, 1000);
-           var d = document.createElement("div");
-        d.style.height = "101%";
-        d.style.overflow = "hidden";
-        document.body.appendChild(d);
-        window.scrollTo(0,scrollToM);
-        setTimeout(function() {
-        d.parentNode.removeChild(d);
-            }, 10);
-           return false;
-         });
-      }
-    }
-  });
-});
-/*! Smooth Scroll - v1.4.5 - 2012-07-22
-* Copyright (c) 2012 Karl Swedberg; Licensed MIT, GPL */
+            $(document).ready(function () {
+                $('#my-accordion').collapse({
+                    toggle: false
+                })
+            });
 </script>          
     </form>   
 </body>

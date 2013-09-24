@@ -30,15 +30,15 @@ namespace bootstraptest01
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void InsertEvent(Event instance);
     partial void UpdateEvent(Event instance);
     partial void DeleteEvent(Event instance);
     partial void InsertLocation(Location instance);
     partial void UpdateLocation(Location instance);
     partial void DeleteLocation(Location instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     #endregion
 		
 		public WalkDatingDataContext() : 
@@ -79,6 +79,14 @@ namespace bootstraptest01
 			}
 		}
 		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Event> Events
 		{
 			get
@@ -92,14 +100,6 @@ namespace bootstraptest01
 			get
 			{
 				return this.GetTable<Location>();
-			}
-		}
-		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
 			}
 		}
 	}
@@ -146,607 +146,6 @@ namespace bootstraptest01
 					this._EventId = value;
 				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Event")]
-	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EventId;
-		
-		private string _Headline;
-		
-		private string _Hookline;
-		
-		private string _InfoText;
-		
-		private System.Nullable<int> _LocationId;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private System.Nullable<int> _Time;
-		
-		private System.Nullable<int> _AgeMin;
-		
-		private System.Nullable<int> _AgeMax;
-		
-		private System.Nullable<int> _NumOfPersons;
-		
-		private System.Nullable<System.DateTime> _Deadline;
-		
-		private System.Nullable<int> _Price;
-		
-		private EntityRef<Location> _Location;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEventIdChanging(int value);
-    partial void OnEventIdChanged();
-    partial void OnHeadlineChanging(string value);
-    partial void OnHeadlineChanged();
-    partial void OnHooklineChanging(string value);
-    partial void OnHooklineChanged();
-    partial void OnInfoTextChanging(string value);
-    partial void OnInfoTextChanged();
-    partial void OnLocationIdChanging(System.Nullable<int> value);
-    partial void OnLocationIdChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    partial void OnTimeChanging(System.Nullable<int> value);
-    partial void OnTimeChanged();
-    partial void OnAgeMinChanging(System.Nullable<int> value);
-    partial void OnAgeMinChanged();
-    partial void OnAgeMaxChanging(System.Nullable<int> value);
-    partial void OnAgeMaxChanged();
-    partial void OnNumOfPersonsChanging(System.Nullable<int> value);
-    partial void OnNumOfPersonsChanged();
-    partial void OnDeadlineChanging(System.Nullable<System.DateTime> value);
-    partial void OnDeadlineChanged();
-    partial void OnPriceChanging(System.Nullable<int> value);
-    partial void OnPriceChanged();
-    #endregion
-		
-		public Event()
-		{
-			this._Location = default(EntityRef<Location>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EventId
-		{
-			get
-			{
-				return this._EventId;
-			}
-			set
-			{
-				if ((this._EventId != value))
-				{
-					this.OnEventIdChanging(value);
-					this.SendPropertyChanging();
-					this._EventId = value;
-					this.SendPropertyChanged("EventId");
-					this.OnEventIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Headline", DbType="NVarChar(50)")]
-		public string Headline
-		{
-			get
-			{
-				return this._Headline;
-			}
-			set
-			{
-				if ((this._Headline != value))
-				{
-					this.OnHeadlineChanging(value);
-					this.SendPropertyChanging();
-					this._Headline = value;
-					this.SendPropertyChanged("Headline");
-					this.OnHeadlineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hookline", DbType="NVarChar(50)")]
-		public string Hookline
-		{
-			get
-			{
-				return this._Hookline;
-			}
-			set
-			{
-				if ((this._Hookline != value))
-				{
-					this.OnHooklineChanging(value);
-					this.SendPropertyChanging();
-					this._Hookline = value;
-					this.SendPropertyChanged("Hookline");
-					this.OnHooklineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoText", DbType="NVarChar(MAX)")]
-		public string InfoText
-		{
-			get
-			{
-				return this._InfoText;
-			}
-			set
-			{
-				if ((this._InfoText != value))
-				{
-					this.OnInfoTextChanging(value);
-					this.SendPropertyChanging();
-					this._InfoText = value;
-					this.SendPropertyChanged("InfoText");
-					this.OnInfoTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", DbType="Int")]
-		public System.Nullable<int> LocationId
-		{
-			get
-			{
-				return this._LocationId;
-			}
-			set
-			{
-				if ((this._LocationId != value))
-				{
-					if (this._Location.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLocationIdChanging(value);
-					this.SendPropertyChanging();
-					this._LocationId = value;
-					this.SendPropertyChanged("LocationId");
-					this.OnLocationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Int")]
-		public System.Nullable<int> Time
-		{
-			get
-			{
-				return this._Time;
-			}
-			set
-			{
-				if ((this._Time != value))
-				{
-					this.OnTimeChanging(value);
-					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMin", DbType="Int")]
-		public System.Nullable<int> AgeMin
-		{
-			get
-			{
-				return this._AgeMin;
-			}
-			set
-			{
-				if ((this._AgeMin != value))
-				{
-					this.OnAgeMinChanging(value);
-					this.SendPropertyChanging();
-					this._AgeMin = value;
-					this.SendPropertyChanged("AgeMin");
-					this.OnAgeMinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMax", DbType="Int")]
-		public System.Nullable<int> AgeMax
-		{
-			get
-			{
-				return this._AgeMax;
-			}
-			set
-			{
-				if ((this._AgeMax != value))
-				{
-					this.OnAgeMaxChanging(value);
-					this.SendPropertyChanging();
-					this._AgeMax = value;
-					this.SendPropertyChanged("AgeMax");
-					this.OnAgeMaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumOfPersons", DbType="Int")]
-		public System.Nullable<int> NumOfPersons
-		{
-			get
-			{
-				return this._NumOfPersons;
-			}
-			set
-			{
-				if ((this._NumOfPersons != value))
-				{
-					this.OnNumOfPersonsChanging(value);
-					this.SendPropertyChanging();
-					this._NumOfPersons = value;
-					this.SendPropertyChanged("NumOfPersons");
-					this.OnNumOfPersonsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deadline", DbType="Date")]
-		public System.Nullable<System.DateTime> Deadline
-		{
-			get
-			{
-				return this._Deadline;
-			}
-			set
-			{
-				if ((this._Deadline != value))
-				{
-					this.OnDeadlineChanging(value);
-					this.SendPropertyChanging();
-					this._Deadline = value;
-					this.SendPropertyChanged("Deadline");
-					this.OnDeadlineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
-		public System.Nullable<int> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Location", ThisKey="LocationId", OtherKey="LocationId", IsForeignKey=true)]
-		public Location Location
-		{
-			get
-			{
-				return this._Location.Entity;
-			}
-			set
-			{
-				Location previousValue = this._Location.Entity;
-				if (((previousValue != value) 
-							|| (this._Location.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Location.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._Location.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._LocationId = value.LocationId;
-					}
-					else
-					{
-						this._LocationId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Location");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Location")]
-	public partial class Location : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LocationId;
-		
-		private string _Name;
-		
-		private string _Address;
-		
-		private System.Nullable<int> _Zip;
-		
-		private System.Nullable<int> _City;
-		
-		private string _LocationInfo;
-		
-		private string _ImageUrl;
-		
-		private EntitySet<Event> _Events;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLocationIdChanging(int value);
-    partial void OnLocationIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnZipChanging(System.Nullable<int> value);
-    partial void OnZipChanged();
-    partial void OnCityChanging(System.Nullable<int> value);
-    partial void OnCityChanged();
-    partial void OnLocationInfoChanging(string value);
-    partial void OnLocationInfoChanged();
-    partial void OnImageUrlChanging(string value);
-    partial void OnImageUrlChanged();
-    #endregion
-		
-		public Location()
-		{
-			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LocationId
-		{
-			get
-			{
-				return this._LocationId;
-			}
-			set
-			{
-				if ((this._LocationId != value))
-				{
-					this.OnLocationIdChanging(value);
-					this.SendPropertyChanging();
-					this._LocationId = value;
-					this.SendPropertyChanged("LocationId");
-					this.OnLocationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(MAX)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zip", DbType="Int")]
-		public System.Nullable<int> Zip
-		{
-			get
-			{
-				return this._Zip;
-			}
-			set
-			{
-				if ((this._Zip != value))
-				{
-					this.OnZipChanging(value);
-					this.SendPropertyChanging();
-					this._Zip = value;
-					this.SendPropertyChanged("Zip");
-					this.OnZipChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="Int")]
-		public System.Nullable<int> City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationInfo", DbType="NVarChar(MAX)")]
-		public string LocationInfo
-		{
-			get
-			{
-				return this._LocationInfo;
-			}
-			set
-			{
-				if ((this._LocationInfo != value))
-				{
-					this.OnLocationInfoChanging(value);
-					this.SendPropertyChanging();
-					this._LocationInfo = value;
-					this.SendPropertyChanged("LocationInfo");
-					this.OnLocationInfoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(50)")]
-		public string ImageUrl
-		{
-			get
-			{
-				return this._ImageUrl;
-			}
-			set
-			{
-				if ((this._ImageUrl != value))
-				{
-					this.OnImageUrlChanging(value);
-					this.SendPropertyChanging();
-					this._ImageUrl = value;
-					this.SendPropertyChanged("ImageUrl");
-					this.OnImageUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Events", ThisKey="LocationId", OtherKey="LocationId")]
-		public EntitySet<Event> Events
-		{
-			get
-			{
-				return this._Events;
-			}
-			set
-			{
-				this._Events.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Events(Event entity)
-		{
-			this.SendPropertyChanging();
-			entity.Location = this;
-		}
-		
-		private void detach_Events(Event entity)
-		{
-			this.SendPropertyChanging();
-			entity.Location = null;
 		}
 	}
 	
@@ -977,6 +376,607 @@ namespace bootstraptest01
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Event")]
+	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EventId;
+		
+		private string _Headline;
+		
+		private string _Hookline;
+		
+		private string _InfoText;
+		
+		private System.Nullable<int> _LocationId;
+		
+		private System.Nullable<System.DateTime> _DateStart;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private System.Nullable<int> _AgeMin;
+		
+		private System.Nullable<int> _AgeMax;
+		
+		private System.Nullable<int> _NumOfPersons;
+		
+		private System.Nullable<System.DateTime> _SignupDeadline;
+		
+		private System.Nullable<int> _Price;
+		
+		private EntityRef<Location> _Location;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEventIdChanging(int value);
+    partial void OnEventIdChanged();
+    partial void OnHeadlineChanging(string value);
+    partial void OnHeadlineChanged();
+    partial void OnHooklineChanging(string value);
+    partial void OnHooklineChanged();
+    partial void OnInfoTextChanging(string value);
+    partial void OnInfoTextChanged();
+    partial void OnLocationIdChanging(System.Nullable<int> value);
+    partial void OnLocationIdChanged();
+    partial void OnDateStartChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateStartChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnAgeMinChanging(System.Nullable<int> value);
+    partial void OnAgeMinChanged();
+    partial void OnAgeMaxChanging(System.Nullable<int> value);
+    partial void OnAgeMaxChanged();
+    partial void OnNumOfPersonsChanging(System.Nullable<int> value);
+    partial void OnNumOfPersonsChanged();
+    partial void OnSignupDeadlineChanging(System.Nullable<System.DateTime> value);
+    partial void OnSignupDeadlineChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    #endregion
+		
+		public Event()
+		{
+			this._Location = default(EntityRef<Location>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EventId
+		{
+			get
+			{
+				return this._EventId;
+			}
+			set
+			{
+				if ((this._EventId != value))
+				{
+					this.OnEventIdChanging(value);
+					this.SendPropertyChanging();
+					this._EventId = value;
+					this.SendPropertyChanged("EventId");
+					this.OnEventIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Headline", DbType="NVarChar(50)")]
+		public string Headline
+		{
+			get
+			{
+				return this._Headline;
+			}
+			set
+			{
+				if ((this._Headline != value))
+				{
+					this.OnHeadlineChanging(value);
+					this.SendPropertyChanging();
+					this._Headline = value;
+					this.SendPropertyChanged("Headline");
+					this.OnHeadlineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hookline", DbType="NVarChar(50)")]
+		public string Hookline
+		{
+			get
+			{
+				return this._Hookline;
+			}
+			set
+			{
+				if ((this._Hookline != value))
+				{
+					this.OnHooklineChanging(value);
+					this.SendPropertyChanging();
+					this._Hookline = value;
+					this.SendPropertyChanged("Hookline");
+					this.OnHooklineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoText", DbType="NVarChar(MAX)")]
+		public string InfoText
+		{
+			get
+			{
+				return this._InfoText;
+			}
+			set
+			{
+				if ((this._InfoText != value))
+				{
+					this.OnInfoTextChanging(value);
+					this.SendPropertyChanging();
+					this._InfoText = value;
+					this.SendPropertyChanged("InfoText");
+					this.OnInfoTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", DbType="Int")]
+		public System.Nullable<int> LocationId
+		{
+			get
+			{
+				return this._LocationId;
+			}
+			set
+			{
+				if ((this._LocationId != value))
+				{
+					if (this._Location.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLocationIdChanging(value);
+					this.SendPropertyChanging();
+					this._LocationId = value;
+					this.SendPropertyChanged("LocationId");
+					this.OnLocationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateStart
+		{
+			get
+			{
+				return this._DateStart;
+			}
+			set
+			{
+				if ((this._DateStart != value))
+				{
+					this.OnDateStartChanging(value);
+					this.SendPropertyChanging();
+					this._DateStart = value;
+					this.SendPropertyChanged("DateStart");
+					this.OnDateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMin", DbType="Int")]
+		public System.Nullable<int> AgeMin
+		{
+			get
+			{
+				return this._AgeMin;
+			}
+			set
+			{
+				if ((this._AgeMin != value))
+				{
+					this.OnAgeMinChanging(value);
+					this.SendPropertyChanging();
+					this._AgeMin = value;
+					this.SendPropertyChanged("AgeMin");
+					this.OnAgeMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMax", DbType="Int")]
+		public System.Nullable<int> AgeMax
+		{
+			get
+			{
+				return this._AgeMax;
+			}
+			set
+			{
+				if ((this._AgeMax != value))
+				{
+					this.OnAgeMaxChanging(value);
+					this.SendPropertyChanging();
+					this._AgeMax = value;
+					this.SendPropertyChanged("AgeMax");
+					this.OnAgeMaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumOfPersons", DbType="Int")]
+		public System.Nullable<int> NumOfPersons
+		{
+			get
+			{
+				return this._NumOfPersons;
+			}
+			set
+			{
+				if ((this._NumOfPersons != value))
+				{
+					this.OnNumOfPersonsChanging(value);
+					this.SendPropertyChanging();
+					this._NumOfPersons = value;
+					this.SendPropertyChanged("NumOfPersons");
+					this.OnNumOfPersonsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignupDeadline", DbType="Date")]
+		public System.Nullable<System.DateTime> SignupDeadline
+		{
+			get
+			{
+				return this._SignupDeadline;
+			}
+			set
+			{
+				if ((this._SignupDeadline != value))
+				{
+					this.OnSignupDeadlineChanging(value);
+					this.SendPropertyChanging();
+					this._SignupDeadline = value;
+					this.SendPropertyChanged("SignupDeadline");
+					this.OnSignupDeadlineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Location", ThisKey="LocationId", OtherKey="LocationId", IsForeignKey=true)]
+		public Location Location
+		{
+			get
+			{
+				return this._Location.Entity;
+			}
+			set
+			{
+				Location previousValue = this._Location.Entity;
+				if (((previousValue != value) 
+							|| (this._Location.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Location.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._Location.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._LocationId = value.LocationId;
+					}
+					else
+					{
+						this._LocationId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Location");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Location")]
+	public partial class Location : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LocationId;
+		
+		private string _Name;
+		
+		private string _Address;
+		
+		private System.Nullable<int> _Zip;
+		
+		private string _City;
+		
+		private string _LocationInfo;
+		
+		private string _ImageUrl;
+		
+		private EntitySet<Event> _Events;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLocationIdChanging(int value);
+    partial void OnLocationIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnZipChanging(System.Nullable<int> value);
+    partial void OnZipChanged();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnLocationInfoChanging(string value);
+    partial void OnLocationInfoChanged();
+    partial void OnImageUrlChanging(string value);
+    partial void OnImageUrlChanged();
+    #endregion
+		
+		public Location()
+		{
+			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LocationId
+		{
+			get
+			{
+				return this._LocationId;
+			}
+			set
+			{
+				if ((this._LocationId != value))
+				{
+					this.OnLocationIdChanging(value);
+					this.SendPropertyChanging();
+					this._LocationId = value;
+					this.SendPropertyChanged("LocationId");
+					this.OnLocationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zip", DbType="Int")]
+		public System.Nullable<int> Zip
+		{
+			get
+			{
+				return this._Zip;
+			}
+			set
+			{
+				if ((this._Zip != value))
+				{
+					this.OnZipChanging(value);
+					this.SendPropertyChanging();
+					this._Zip = value;
+					this.SendPropertyChanged("Zip");
+					this.OnZipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationInfo", DbType="NVarChar(MAX)")]
+		public string LocationInfo
+		{
+			get
+			{
+				return this._LocationInfo;
+			}
+			set
+			{
+				if ((this._LocationInfo != value))
+				{
+					this.OnLocationInfoChanging(value);
+					this.SendPropertyChanging();
+					this._LocationInfo = value;
+					this.SendPropertyChanged("LocationInfo");
+					this.OnLocationInfoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(50)")]
+		public string ImageUrl
+		{
+			get
+			{
+				return this._ImageUrl;
+			}
+			set
+			{
+				if ((this._ImageUrl != value))
+				{
+					this.OnImageUrlChanging(value);
+					this.SendPropertyChanging();
+					this._ImageUrl = value;
+					this.SendPropertyChanged("ImageUrl");
+					this.OnImageUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Events", ThisKey="LocationId", OtherKey="LocationId")]
+		public EntitySet<Event> Events
+		{
+			get
+			{
+				return this._Events;
+			}
+			set
+			{
+				this._Events.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Events(Event entity)
+		{
+			this.SendPropertyChanging();
+			entity.Location = this;
+		}
+		
+		private void detach_Events(Event entity)
+		{
+			this.SendPropertyChanging();
+			entity.Location = null;
 		}
 	}
 }
