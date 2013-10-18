@@ -31,6 +31,7 @@ namespace bootstraptest01
                     EventDate.InnerText = date.ToString("dd, MMMM, yyyy");
                     EventTime.InnerText = "Tid: " + date.ToShortTimeString();
                     EventPrice.InnerText = "Pris: " + events[i].Price + " kr.";
+                    AgeGroup.InnerText = "Alder: " + events[i].AgeMin + " - " + events[i].AgeMax + " år";
                 }
                 else if (i == 1)
                 {

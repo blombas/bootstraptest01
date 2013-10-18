@@ -1,17 +1,10 @@
+
+
 /*------------------ The navbar overlaps the body onless it has some padding. the padding is removed on mobil devices------*/
 
 body{
     padding-top: 5em;
-    background-color: #FBFEF6;
-    background: #2e6170; /* Old browsers */
-background: -moz-radial-gradient(center, ellipse cover,  #2e6170 0%, #3f889e 100%, #4ea9c4 100%, #fbfef6 100%); /* FF3.6+ */
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2e6170), color-stop(100%,#3f889e), color-stop(100%,#4ea9c4), color-stop(100%,#fbfef6)); /* Chrome,Safari4+ */
-background: -webkit-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* Chrome10+,Safari5.1+ */
-background: -o-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* Opera 12+ */
-background: -ms-radial-gradient(center, ellipse cover,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* IE10+ */
-background: radial-gradient(ellipse at center,  #2e6170 0%,#3f889e 100%,#4ea9c4 100%,#fbfef6 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6170', endColorstr='#fbfef6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
+   }
 
 
 
@@ -29,10 +22,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6170', end
     padding-right: 10px;
 }
 
-.well{
-    background-color: #FBFEF6;
-    margin: 10px;
-}
 
 .modal {
     /* new custom width */
@@ -62,34 +51,8 @@ hr
 
 .navbar .brand{
     font-family: 'Stoke', serif;
-    font-size: 26px;
 }
-
-/* set the background-color to red */
-.navbar-inner
-{
-    background-color: #26515E;
-    /* remove the gradient */
-    background-image: none;
-    /* set font color to #FBFEF6 */
-    color: #FBFEF6;
-    border: none;
-} 
-
-.navbar-fixed-top .navbar-inner,
-.navbar-static-top .navbar-inner {
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
-}  
-
-/* menu items */
-
-    /* set the background of the menu items to pink and default color to #FBFEF6 */
-
-        .navbar .nav > li > a {   
-        color: #FBFEF6;
-        }
+  
 
 
     /* set hover and focus to lightblue */
@@ -107,17 +70,66 @@ hr
           color: #FBFEF6;
         }
 
-    /* set font color and background of the project name (brand) */
-
-    .navbar .brand 
+    .image-featured
     {
-        color: #FBFEF6;
+        margin-top: 15px;
     }
 
-    .text-featured
-    {
-        color: #FBFEF6;
-    }
+#my-accordion
+{
+    margin-bottom:0;
+}
+
+.accordion-group{
+  border: none;
+  margin-bottom: 7px;
+}
+
+.accordion-heading
+{
+    border: none;
+    margin-bottom: 0;
+}
+
+.accordion-heading h3, .accordion-heading .my-summery, 
+{
+    margin-left: 10px;
+}
+
+.page-header{
+    border-bottom: none;
+}
+
+.breadcrumb{
+    background-color: #26515E;
+}
+
+.signup-for-event
+{
+    margin:1px;
+    position: relative;
+}
+
+.event-img
+{
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.event-info 
+{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+   
 
     .image-featured
     {
@@ -237,12 +249,12 @@ hr
 
 .even
 {
-    background-color: #B0BBC2;
+    background-color: #F1F2E8;
 }
 
 .uneven
 {
-    background-color: #99A2A8;
+    background-color: #DFE0D7;
 }
 
 .text-info
