@@ -5,15 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>walkdating</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/magic-bootstrap-min.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Stoke' rel='stylesheet' type='text/css'/>
-    <link href="Content/Site.css" rel="stylesheet" />
-    <link href="Content/bootstrap-responsive.min.css" rel="stylesheet" />
-    
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="Content/style.css"/>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>   
 </head>
 
 
@@ -21,25 +17,29 @@
     <form id="form1" runat="server">
 
    <!-- navbar -->
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <asp:LinkButton ID="LinkButtonLogo" runat="server" CssClass="brand" EnableTheming="True" PostBackUrl="Default.aspx">WALK DATING</asp:LinkButton>
-                    <a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="collapse nav-collapse" >
-                        <ul class="pull-right nav">
-                            <li><a href="Events.aspx">EVENTS</a></li>
-                            <li><a href="About.aspx">OM WALK DATING</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#modal-contact-form">CONTACT</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="container-fluid">
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <a class="navbar-brand" href="#">WALKDATING</a>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand"></a>
         </div>
+        <div class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li class="">
+              <a>Events</a>
+            </li>
+            <li>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
     <!-- contact form -->
         <div class="modal hide fade" id="modal-contact-form">
@@ -82,7 +82,7 @@
               <a href="" data-dismiss="modal" class="btn">Cancel</a>
           </div>
         </div>
-  
+  </div>
      <asp:ContentPlaceHolder ID="FeaturedProducts" runat="server"></asp:ContentPlaceHolder> 
                  
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>

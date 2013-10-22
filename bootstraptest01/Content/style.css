@@ -1,0 +1,106 @@
+/* Make something awesome! */
+
+.container-fluid {
+  
+  padding:0 1em;
+}
+
+/*------typo -----------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #203139;
+}
+
+
+.page-header {
+  border-bottom: 1pxpx solid #86b5ae;
+}
+
+a {
+  color: #436157;
+}
+
+.well {
+  background-color: #5a7a75;
+}
+
+.jumbotron {
+
+  padding-bottom: 0;
+  background-color: #fff;
+}
+
+
+
+
+/*----- custom button -----------*/
+
+.btn-custom-spin.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-custom-spin {
+  margin-top: 1.5em;
+
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #bf523d;
+  background-image: -moz-linear-gradient(top, #bf493d, #bf5f3d);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bf493d), to(#bf5f3d));
+  background-image: -webkit-linear-gradient(top, #bf493d, #bf5f3d);
+  background-image: -o-linear-gradient(top, #bf493d, #bf5f3d);
+  background-image: linear-gradient(to bottom, #bf493d, #bf5f3d);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbf493d', endColorstr='#ffbf5f3d', GradientType=0);
+  border-color: #bf5f3d #bf5f3d #85422a;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #bf5f3d;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-custom-spin:hover,
+.btn-custom-spin:focus,
+.btn-custom-spin:active,
+.btn-custom-spin.active,
+.btn-custom-spin.disabled,
+.btn-custom-spin[disabled] {
+  color: #ffffff;
+  background-color: #bf5f3d;
+  *background-color: #ac5537;
+}
+.btn-custom-spin:active,
+.btn-custom-spin.active {
+  background-color: #984c31 ;
+}
+
+
+/*-----navbar --------*/
+
+.navbar-inverse { background-color: #2F443D}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #5A7A75}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #203139}
+.dropdown-menu { background-color: #2F443D}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #5A7A75}
+.navbar-inverse { border-color: #2F443D}
+.navbar-inverse .navbar-brand { color: #B3B3B3}
+.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a { color: #B3B3B3}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
+.dropdown-menu>li>a { color: #B3B3B3}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #B3B3B3}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #B3B3B3}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
+
+.main-content {
+
+  padding: 0 1.5em;
+}
