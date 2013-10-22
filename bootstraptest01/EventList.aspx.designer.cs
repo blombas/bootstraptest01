@@ -13,12 +13,12 @@ namespace bootstraptest01 {
     public partial class Default {
         
         /// <summary>
-        /// event1 control.
+        /// WucEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::bootstraptest01.WucEvent event1;
+        protected global::bootstraptest01.WucEvent WucEvent;
     }
 }

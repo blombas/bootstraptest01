@@ -31,7 +31,7 @@
                     <li class="list-group-item">pris: 150 &nbsp;kr</li>
                     <li class="list-group-item">alder: 30-40 &aring;r</li>
                   </ul>
-                  <a class="btn btn-custom-spin">Tilmeld</a>
+                  <asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld" CssClass="btn btn-custom-spin" OnClick="ButtonSignup_Click" />
                 </div>
               </div>
             </div>
