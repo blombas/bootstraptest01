@@ -12,13 +12,15 @@ namespace bootstraptest01
          
         protected void Page_Load(object sender, EventArgs e)
         {
-            WucEvent.SignupForEvent += new EventHandler(WucEvent_SignupForEvent);
+            WucEvent myEvent = new WucEvent();
+            myEvent.SignupForEvent += new EventHandler(WucEvent_SignupForEvent);
 
         }
 
          protected void WucEvent_SignupForEvent(object sender, EventArgs e)
         {
 
+            Label1.Text = "clicked";
         }
     }
 }

@@ -3,7 +3,8 @@
 
 <asp:Content ID="Feature" ContentPlaceHolderID="FeaturedProducts" runat="server">
     <div class="container-fluid">
-        <uc:WucEvent runat="server" id="WucEvent" />
+        <uc:WucEvent runat="server" id="WucEvent1" />
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
 </asp:Content>
 
