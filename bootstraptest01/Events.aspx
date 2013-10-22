@@ -16,7 +16,7 @@
 				<div class="accordion-group uneven">
 					<div class="accordion-heading">
 
-						<div class="row">
+						<div class="row-fluid">
 							<div class="span5">
 								<a href="#collapse-1" data-toggle="collapse" data-parent="#my-accordion" class="accordion-toggle">
 									<asp:Image ID="Image1" runat="server" AlternateText="demo" ImageUrl="http://lorempixel.com/600/300/nature" CssClass="image-featured img-rounded event-img pull-left" /></a>
@@ -36,10 +36,10 @@
 								<p class="text-info" runat="server" id="EventTime"><strong></strong></p>
 								<p class="text-info" runat="server" id="EventPrice"><strong></strong></p>
 									<p class="text-info" runat="server" id="AgeGroup"><strong></strong></p>
-									</div>
-								<div class="signup-for-event">
 									<asp:Button ID="ButtonSignup1" runat="server" Text="Tilmeld mig" CssClass="btn btn-featured btn-large event-signup-btn" />
-								</div>
+
+									</div>
+								
 								</div>
 							</div>
 
