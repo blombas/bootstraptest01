@@ -10,16 +10,7 @@
 namespace bootstraptest01 {
     
     
-    public partial class Default {
-        
-        /// <summary>
-        /// WucEvent1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::bootstraptest01.WucEvent WucEvent1;
+    public partial class EventList {
         
         /// <summary>
         /// Label1 control.
@@ -29,5 +20,14 @@ namespace bootstraptest01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// WucEvent1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::bootstraptest01.WucEvent WucEvent1;
     }
 }

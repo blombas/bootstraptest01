@@ -9,18 +9,14 @@ namespace bootstraptest01
 {
     public partial class EventList : System.Web.UI.Page
     {
-         
         protected void Page_Load(object sender, EventArgs e)
         {
-            WucEvent myEvent = new WucEvent();
-            myEvent.SignupForEvent += new EventHandler(WucEvent_SignupForEvent);
-
+            WucEvent1.SignupForEvent += new EventHandler(WucEvent1_SignupForEvent);
         }
 
-         protected void WucEvent_SignupForEvent(object sender, EventArgs e)
+        protected void WucEvent1_SignupForEvent(Object sender, EventArgs e)
         {
-
-            Label1.Text = "clicked";
+            Label1.Text = "Clicked";
         }
     }
 }
