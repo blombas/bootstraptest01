@@ -23,7 +23,7 @@
                     <div class="media-body"></div>
                   </div>
                   <img src="https://lorempixel.com/175/100" class="pull-right visible-xs">
-                  <h3>Den romantiske have i efter&aring;rets farver</h3>
+                  <h3 runat="server" id="EventHeading">Den romantiske have i efter&aring;rets farver</h3>
                   <li class="list-group-item">17, oktober, 2013</li>
                   <img src="https://app.divshot.com/img/placeholder-100x100.gif" class="pull-right">
                   <ul class="list-group">
