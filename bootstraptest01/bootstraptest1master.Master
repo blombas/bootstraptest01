@@ -28,8 +28,8 @@
 		</div>
 		<div class="collapse navbar-collapse pull-right">
 		  <ul class="nav navbar-nav">
-			<li class="">
-			  <a>Events</a>
+			<li>
+			  <a href="EventList.aspx">Events</a>
 			</li>
 			<li>
 			  <a>About</a>
