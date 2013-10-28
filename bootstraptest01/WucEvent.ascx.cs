@@ -15,17 +15,106 @@ namespace bootstraptest01
         public string HeadLine
         {
             get { return headLine; }
-            set { EventHeading.InnerText = value; }
+            set 
+            {
+                headLine = value;
+                EventHeading.InnerText = value;
+            }
         }
-        
+
+        private string locationName;
+        public string LocationName
+        {
+            get { return locationName; }
+            set 
+            {
+                location.InnerText = value;
+                locationName = value; 
+            }
+        }
 
 
-        public string HookLine { get;set; }
-        public string InfoTekst { get; set; }
-        public DateTime StartDate { get; set; }
-        public int AgeMin { get; set; }
-        public int AgeMax { get; set; }
-        public int Price { get; set; }
+        private string infoText;
+        public string InfoText
+        {
+            get { return infoText; }
+            set 
+            {
+                infoText = value;
+                EventInfoText.InnerText = value; 
+            }
+        }
+
+        private DateTime start;
+        public DateTime Start
+        {
+            get { return start; }
+            set 
+            {
+                start = value;
+                var month = value.ToString("MMMM");
+                var eventHour = value.ToString("HH");
+                var eventMin = value.ToString("mm");
+                EventStart.InnerText = value.Day + ", " + month +", " + value.Year;
+                Hour.InnerText = "Kl " + eventHour + ":" + eventMin;
+            }
+        }
+
+        private string ageLimits;
+        public string AgeLimits
+        {
+            get { return ageLimits; }
+            set
+            {
+                ageLimits = value;
+                AgeGroup.InnerText = value;
+            } 
+        }
+        private int price;
+        public int Price
+        {
+            get { return price; }
+            set
+            {
+                price = value;
+                PriceTag.InnerText = "Pris: " + value + " kr";
+            }
+        }
+
+        private DateTime lastChange;
+        public DateTime LastChange
+        {
+            get { return lastChange; }
+            set
+            {
+                lastChange = value;
+                var month = value.ToString("MMMM");
+                LastSignupDate.InnerText = "Tilmeldingsfrist: " + value.Day + ", " + month + ", " + value.Year;
+            }
+        }
+
+        private string eventFull;
+        public string EventFull
+        {
+            get { return eventFull; }
+            set
+            {
+                eventFull = value;
+                if(value == "Ledige pladser")
+                {
+                    FreeSeats.Attributes.Add("class", "text-success");
+                }
+                else if (value == "Alle pladser optaget")
+                {
+                    FreeSeats.Attributes.Add("class", "text-danger");
+                }
+                else if (value == "Plads til mænd" || value=="Plads til kvinder")
+                {
+                    FreeSeats.Attributes.Add("class", "text-warning");
+                }
+                FreeSeats.InnerText = value;
+            }
+        }
 
         public event MyEventHandler SignupForEvent;
 
@@ -39,7 +128,7 @@ namespace bootstraptest01
             if (SignupForEvent != null)
             {
                 MyEventArgs myEvent = new MyEventArgs();
-                myEvent.HeadLine = EventHeading.InnerText;
+                myEvent.MyWucEvent = this;
                 SignupForEvent(sender, myEvent);
             }
         }
@@ -47,6 +136,6 @@ namespace bootstraptest01
 
     public class MyEventArgs:EventArgs
     {
-        public string HeadLine { get; set; }
+        public WucEvent MyWucEvent { get; set; }
     }
 }

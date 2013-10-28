@@ -16,6 +16,14 @@ h6 {
   color: #203139;
 }
 
+.event-heading {
+  margin-top: 0;
+}
+
+.event-location {
+  margin-bottom: 2px;
+}
+
 
 .page-header {
   border-bottom: 1pxpx solid #86b5ae;
@@ -35,12 +43,30 @@ a {
   background-color: #fff;
 }
 
-.wuc-event {
+.eventlist {
 
-  margin-top: 4em;
+  margin-left: 1em;
+  margin-right:1em;
+  margin-top: 3em;
 }
 
 
+
+.panel-default {
+
+  margin-bottom: 0;
+}
+
+
+
+.panel-heading {
+
+  background-color: #DED4B9;
+}
+
+ul.list-group {
+  list-style: none;
+}
 
 
 
@@ -52,6 +78,7 @@ a {
 }
 .btn-custom-spin {
   margin-top: 1.5em;
+  margin-bottom: 1.5em;
 
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
