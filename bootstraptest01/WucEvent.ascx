@@ -35,11 +35,12 @@
                     <li class="list-group-item" runat="server" id="Hour">kl 18:00</li>
                     <li class="list-group-item" runat="server" id="PriceTag">pris: 150 &nbsp;kr</li>
                     <li class="list-group-item" runat="server" id="AgeGroup">alder: 30-40 &aring;r</li>
-                    
-                    <li class="list-group-item text-info" runat="server" id="LastSignupDate">Tilmeldingsfrist:  &aring;r</li>
+                    <li class="list-group-item text-info" runat="server">
+                        <p runat="server" id="LastSignupDate"></p>
+                        <strong runat="server" id="FreeSeats"></strong></li>
                   </ul>
                   <asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld dig" CssClass="btn btn-large btn-custom-spin" OnClick="ButtonSignup_Click" />
-                    <p class="list-group-item" runat="server" id="FreeSeats">Ledige pladser: &aring;r</p>
+                    
                 </div>
               </div>
             </div>

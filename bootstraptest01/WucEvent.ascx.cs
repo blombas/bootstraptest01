@@ -108,7 +108,7 @@ namespace bootstraptest01
                 {
                     FreeSeats.Attributes.Add("class", "text-danger");
                 }
-                else if (value == "Plads til mænd" || value=="Plads til kvinder")
+                else if(value == "Plads til mænd" || value=="Plads til kvinder")
                 {
                     FreeSeats.Attributes.Add("class", "text-warning");
                 }

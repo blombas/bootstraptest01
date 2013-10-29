@@ -30,15 +30,15 @@ namespace bootstraptest01
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertEvent(Event instance);
     partial void UpdateEvent(Event instance);
     partial void DeleteEvent(Event instance);
     partial void InsertLocation(Location instance);
     partial void UpdateLocation(Location instance);
     partial void DeleteLocation(Location instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public WalkDatingDataContext() : 
@@ -79,14 +79,6 @@ namespace bootstraptest01
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Event> Events
 		{
 			get
@@ -100,6 +92,14 @@ namespace bootstraptest01
 			get
 			{
 				return this.GetTable<Location>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -145,236 +145,6 @@ namespace bootstraptest01
 				{
 					this._EventId = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserId;
-		
-		private string _FIrstName;
-		
-		private string _LastName;
-		
-		private string _Mail;
-		
-		private System.Nullable<System.DateTime> _DateOfBirth;
-		
-		private System.Nullable<int> _Gender;
-		
-		private System.Nullable<int> _MobilPhone;
-		
-		private System.Nullable<int> _Newsletter;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIdChanging(int value);
-    partial void OnUserIdChanged();
-    partial void OnFIrstNameChanging(string value);
-    partial void OnFIrstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnMailChanging(string value);
-    partial void OnMailChanged();
-    partial void OnDateOfBirthChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateOfBirthChanged();
-    partial void OnGenderChanging(System.Nullable<int> value);
-    partial void OnGenderChanged();
-    partial void OnMobilPhoneChanging(System.Nullable<int> value);
-    partial void OnMobilPhoneChanged();
-    partial void OnNewsletterChanging(System.Nullable<int> value);
-    partial void OnNewsletterChanged();
-    #endregion
-		
-		public User()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIrstName", DbType="NVarChar(50)")]
-		public string FIrstName
-		{
-			get
-			{
-				return this._FIrstName;
-			}
-			set
-			{
-				if ((this._FIrstName != value))
-				{
-					this.OnFIrstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FIrstName = value;
-					this.SendPropertyChanged("FIrstName");
-					this.OnFIrstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50)")]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="NVarChar(50)")]
-		public string Mail
-		{
-			get
-			{
-				return this._Mail;
-			}
-			set
-			{
-				if ((this._Mail != value))
-				{
-					this.OnMailChanging(value);
-					this.SendPropertyChanging();
-					this._Mail = value;
-					this.SendPropertyChanged("Mail");
-					this.OnMailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date")]
-		public System.Nullable<System.DateTime> DateOfBirth
-		{
-			get
-			{
-				return this._DateOfBirth;
-			}
-			set
-			{
-				if ((this._DateOfBirth != value))
-				{
-					this.OnDateOfBirthChanging(value);
-					this.SendPropertyChanging();
-					this._DateOfBirth = value;
-					this.SendPropertyChanged("DateOfBirth");
-					this.OnDateOfBirthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="Int")]
-		public System.Nullable<int> Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this.OnGenderChanging(value);
-					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilPhone", DbType="Int")]
-		public System.Nullable<int> MobilPhone
-		{
-			get
-			{
-				return this._MobilPhone;
-			}
-			set
-			{
-				if ((this._MobilPhone != value))
-				{
-					this.OnMobilPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._MobilPhone = value;
-					this.SendPropertyChanged("MobilPhone");
-					this.OnMobilPhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Newsletter", DbType="Int")]
-		public System.Nullable<int> Newsletter
-		{
-			get
-			{
-				return this._Newsletter;
-			}
-			set
-			{
-				if ((this._Newsletter != value))
-				{
-					this.OnNewsletterChanging(value);
-					this.SendPropertyChanging();
-					this._Newsletter = value;
-					this.SendPropertyChanged("Newsletter");
-					this.OnNewsletterChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -977,6 +747,236 @@ namespace bootstraptest01
 		{
 			this.SendPropertyChanging();
 			entity.Location = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UserId;
+		
+		private string _FIrstName;
+		
+		private string _LastName;
+		
+		private string _Mail;
+		
+		private System.Nullable<int> _BirthYear;
+		
+		private string _Gender;
+		
+		private System.Nullable<int> _MobilPhone;
+		
+		private System.Nullable<int> _Newsletter;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnFIrstNameChanging(string value);
+    partial void OnFIrstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnMailChanging(string value);
+    partial void OnMailChanged();
+    partial void OnBirthYearChanging(System.Nullable<int> value);
+    partial void OnBirthYearChanged();
+    partial void OnGenderChanging(string value);
+    partial void OnGenderChanged();
+    partial void OnMobilPhoneChanging(System.Nullable<int> value);
+    partial void OnMobilPhoneChanged();
+    partial void OnNewsletterChanging(System.Nullable<int> value);
+    partial void OnNewsletterChanged();
+    #endregion
+		
+		public User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIrstName", DbType="NVarChar(50)")]
+		public string FIrstName
+		{
+			get
+			{
+				return this._FIrstName;
+			}
+			set
+			{
+				if ((this._FIrstName != value))
+				{
+					this.OnFIrstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FIrstName = value;
+					this.SendPropertyChanged("FIrstName");
+					this.OnFIrstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50)")]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="NVarChar(50)")]
+		public string Mail
+		{
+			get
+			{
+				return this._Mail;
+			}
+			set
+			{
+				if ((this._Mail != value))
+				{
+					this.OnMailChanging(value);
+					this.SendPropertyChanging();
+					this._Mail = value;
+					this.SendPropertyChanged("Mail");
+					this.OnMailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthYear", DbType="Int")]
+		public System.Nullable<int> BirthYear
+		{
+			get
+			{
+				return this._BirthYear;
+			}
+			set
+			{
+				if ((this._BirthYear != value))
+				{
+					this.OnBirthYearChanging(value);
+					this.SendPropertyChanging();
+					this._BirthYear = value;
+					this.SendPropertyChanged("BirthYear");
+					this.OnBirthYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(50)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this.OnGenderChanging(value);
+					this.SendPropertyChanging();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilPhone", DbType="Int")]
+		public System.Nullable<int> MobilPhone
+		{
+			get
+			{
+				return this._MobilPhone;
+			}
+			set
+			{
+				if ((this._MobilPhone != value))
+				{
+					this.OnMobilPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._MobilPhone = value;
+					this.SendPropertyChanged("MobilPhone");
+					this.OnMobilPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Newsletter", DbType="Int")]
+		public System.Nullable<int> Newsletter
+		{
+			get
+			{
+				return this._Newsletter;
+			}
+			set
+			{
+				if ((this._Newsletter != value))
+				{
+					this.OnNewsletterChanging(value);
+					this.SendPropertyChanging();
+					this._Newsletter = value;
+					this.SendPropertyChanged("Newsletter");
+					this.OnNewsletterChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
