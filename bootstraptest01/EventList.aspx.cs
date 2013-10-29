@@ -40,7 +40,6 @@ namespace bootstraptest01
         protected void myEvent_SignupForEvent(Object sender, MyEventArgs e)
         {
             WucEvent choosenWucEvent = e.MyWucEvent;
-            Label2.Text = choosenWucEvent.AgeLimits;
 
         }
 

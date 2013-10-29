@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bootstraptest01.Account.Register" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/bootstraptest1master.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bootstraptest01.Account.Register" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="FeaturedProducts">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
         <h2>Use the form below to create a new account.</h2>
