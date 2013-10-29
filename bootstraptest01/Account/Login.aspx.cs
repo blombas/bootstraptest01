@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace bootstraptest01.Account
 {
@@ -18,6 +19,17 @@ namespace bootstraptest01.Account
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+            }
+        }
+
+        protected void Unnamed6_Click(object sender, EventArgs e)
+        {
+            TextBox name = MyLogin.FindControl("UserName") as TextBox;
+            TextBox pass = MyLogin.FindControl("Password") as TextBox;
+
+            if (Membership.ValidateUser(name.Text, pass.Text))
+            {
+                Response.Redirect("../Default.aspx");
             }
         }
     }
