@@ -212,6 +212,7 @@
     <Content Include="packages.config" />
     <Content Include="bootstraptest1master.Master" />
     <Content Include="WucEvent.ascx" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\ahbdate.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -12,25 +12,25 @@ namespace bootstraptest01.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register.aspx";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
 
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
         }
 
-        protected void Unnamed6_Click(object sender, EventArgs e)
+        protected void ButtonLogin_Click(object sender, EventArgs e)
         {
-            TextBox name = MyLogin.FindControl("UserName") as TextBox;
-            TextBox pass = MyLogin.FindControl("Password") as TextBox;
+            Page.Validate();
+            if (!Page.IsValid) return;
 
-            if (Membership.ValidateUser(name.Text, pass.Text))
+            if (Membership.ValidateUser(TextBoxEmail.Text, TextBoxPassword.Text))
             {
-                Response.Redirect("../Default.aspx");
+                FormsAuthentication.RedirectFromLoginPage(TextBoxEmail.Text, false);
+            }
+            else
+            {
+                string error = "Wrong user or password";
+                LabelError.Text = error;
+                LabelError.Visible = true;
             }
         }
+
     }
 }
