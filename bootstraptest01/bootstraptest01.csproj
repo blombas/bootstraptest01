@@ -353,9 +353,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="WalkDating.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>WalkDating.designer.cs</LastGenOutput>

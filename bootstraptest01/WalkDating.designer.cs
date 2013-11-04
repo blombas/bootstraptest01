@@ -36,6 +36,9 @@ namespace bootstraptest01
     partial void InsertLocation(Location instance);
     partial void UpdateLocation(Location instance);
     partial void DeleteLocation(Location instance);
+    partial void InsertUserEvent(UserEvent instance);
+    partial void UpdateUserEvent(UserEvent instance);
+    partial void DeleteUserEvent(UserEvent instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
@@ -71,14 +74,6 @@ namespace bootstraptest01
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<UserEvent> UserEvents
-		{
-			get
-			{
-				return this.GetTable<UserEvent>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Event> Events
 		{
 			get
@@ -95,56 +90,19 @@ namespace bootstraptest01
 			}
 		}
 		
+		public System.Data.Linq.Table<UserEvent> UserEvents
+		{
+			get
+			{
+				return this.GetTable<UserEvent>();
+			}
+		}
+		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
 				return this.GetTable<User>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserEvent")]
-	public partial class UserEvent
-	{
-		
-		private int _UserId;
-		
-		private int _EventId;
-		
-		public UserEvent()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this._UserId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", DbType="Int NOT NULL")]
-		public int EventId
-		{
-			get
-			{
-				return this._EventId;
-			}
-			set
-			{
-				if ((this._EventId != value))
-				{
-					this._EventId = value;
-				}
 			}
 		}
 	}
@@ -178,6 +136,8 @@ namespace bootstraptest01
 		private System.Nullable<System.DateTime> _SignupDeadline;
 		
 		private System.Nullable<int> _Price;
+		
+		private EntitySet<UserEvent> _UserEvents;
 		
 		private EntityRef<Location> _Location;
 		
@@ -213,6 +173,7 @@ namespace bootstraptest01
 		
 		public Event()
 		{
+			this._UserEvents = new EntitySet<UserEvent>(new Action<UserEvent>(this.attach_UserEvents), new Action<UserEvent>(this.detach_UserEvents));
 			this._Location = default(EntityRef<Location>);
 			OnCreated();
 		}
@@ -461,6 +422,19 @@ namespace bootstraptest01
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_UserEvents", ThisKey="EventId", OtherKey="EventId")]
+		public EntitySet<UserEvent> UserEvents
+		{
+			get
+			{
+				return this._UserEvents;
+			}
+			set
+			{
+				this._UserEvents.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Location", ThisKey="LocationId", OtherKey="LocationId", IsForeignKey=true)]
 		public Location Location
 		{
@@ -513,6 +487,18 @@ namespace bootstraptest01
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = this;
+		}
+		
+		private void detach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = null;
 		}
 	}
 	
@@ -750,6 +736,198 @@ namespace bootstraptest01
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserEvent")]
+	public partial class UserEvent : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UserEventId;
+		
+		private int _UserId;
+		
+		private int _EventId;
+		
+		private EntityRef<Event> _Event;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserEventIdChanging(int value);
+    partial void OnUserEventIdChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnEventIdChanging(int value);
+    partial void OnEventIdChanged();
+    #endregion
+		
+		public UserEvent()
+		{
+			this._Event = default(EntityRef<Event>);
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserEventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserEventId
+		{
+			get
+			{
+				return this._UserEventId;
+			}
+			set
+			{
+				if ((this._UserEventId != value))
+				{
+					this.OnUserEventIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserEventId = value;
+					this.SendPropertyChanged("UserEventId");
+					this.OnUserEventIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", DbType="Int NOT NULL")]
+		public int EventId
+		{
+			get
+			{
+				return this._EventId;
+			}
+			set
+			{
+				if ((this._EventId != value))
+				{
+					if (this._Event.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEventIdChanging(value);
+					this.SendPropertyChanging();
+					this._EventId = value;
+					this.SendPropertyChanged("EventId");
+					this.OnEventIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
+		public Event Event
+		{
+			get
+			{
+				return this._Event.Entity;
+			}
+			set
+			{
+				Event previousValue = this._Event.Entity;
+				if (((previousValue != value) 
+							|| (this._Event.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Event.Entity = null;
+						previousValue.UserEvents.Remove(this);
+					}
+					this._Event.Entity = value;
+					if ((value != null))
+					{
+						value.UserEvents.Add(this);
+						this._EventId = value.EventId;
+					}
+					else
+					{
+						this._EventId = default(int);
+					}
+					this.SendPropertyChanged("Event");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserEvent", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.UserEvents.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.UserEvents.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -772,6 +950,10 @@ namespace bootstraptest01
 		
 		private System.Nullable<int> _Newsletter;
 		
+		private string _UniqueId;
+		
+		private EntitySet<UserEvent> _UserEvents;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -792,10 +974,13 @@ namespace bootstraptest01
     partial void OnMobilPhoneChanged();
     partial void OnNewsletterChanging(System.Nullable<int> value);
     partial void OnNewsletterChanged();
+    partial void OnUniqueIdChanging(string value);
+    partial void OnUniqueIdChanged();
     #endregion
 		
 		public User()
 		{
+			this._UserEvents = new EntitySet<UserEvent>(new Action<UserEvent>(this.attach_UserEvents), new Action<UserEvent>(this.detach_UserEvents));
 			OnCreated();
 		}
 		
@@ -959,6 +1144,39 @@ namespace bootstraptest01
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UniqueId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string UniqueId
+		{
+			get
+			{
+				return this._UniqueId;
+			}
+			set
+			{
+				if ((this._UniqueId != value))
+				{
+					this.OnUniqueIdChanging(value);
+					this.SendPropertyChanging();
+					this._UniqueId = value;
+					this.SendPropertyChanged("UniqueId");
+					this.OnUniqueIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserEvent", Storage="_UserEvents", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<UserEvent> UserEvents
+		{
+			get
+			{
+				return this._UserEvents;
+			}
+			set
+			{
+				this._UserEvents.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -977,6 +1195,18 @@ namespace bootstraptest01
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }
