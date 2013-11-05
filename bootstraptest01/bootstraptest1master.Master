@@ -4,7 +4,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'/>
 	<title>walkdating</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css"/>
@@ -34,7 +33,7 @@
 			  <a href="EventList.aspx">Events</a>
 			</li>
 			<li>
-			  <a>About</a>
+			  <a href="#">About</a>
 			</li>
 			<li title="Login|Signup" class="dropdown closed">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -43,9 +42,9 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" />
+						<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" />
 					</li>
-					<li><a href="Account/Register.aspx">Signup</a></li> 
+					<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li> 
 				</ul>
 			</li>
 			<li title="Contact">
@@ -54,6 +53,7 @@
 		  </ul>
 		</div>
 	  </div>
+			
 
 	<!-- contact form -->
 	   <div class="modal fade" id="myModal">
@@ -61,14 +61,28 @@
 	  <div class="modal-content">
 		<div class="modal-header">
 		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		  <h4 class="modal-title">Modal title</h4>
+		  <h4 class="modal-title">Contact</h4>
 		</div>
 		<div class="modal-body">
-		  Content for the dialog / modal goes here.
+			<div class="form form-signin">
+				<div class="form-group">
+		<p class="form-group-label"><strong>Name</strong></p>
+		<asp:TextBox runat="server" id="TextBoxNameContact" CssClass="form-control"/>
+		</div>
+				<div class="form-group">
+		<p class="form-group-label"><strong>Email</strong></p>
+		<asp:TextBox runat="server" id="TextBoxEmailContact" CssClass="form-control"/>
+		</div>
+				<div class="form-group">
+		<p class="form-group-label"><strong>Message</strong></p>Message</strong></p>
+		<asp:TextBox runat="server" id="TextBoxMessageContact" CssClass="form-control" Rows="6" TextMode="MultiLine" />
+		</div>
+			</div>
 		</div>
 		<div class="modal-footer">
-		  <a href="#" data-dismiss="modal" class="btn">Close</a>
-		  <a href="#" class="btn btn-primary" id="messageSent">Save changes</a>
+		
+		<asp:Button runat="server" ID="ButtonSendMessage" Text="Send" CssClass="btn btn-lg btn-block btn-custom-spin" type="submit" OnClientClick="ButtonSendMessage_Click" OnClick="ButtonSendMessage_Click1"></asp:Button>
+		<a href="#" data-dismiss="modal" class="text-info">Close</a>
 		</div>
 	  </div>
 	</div>
