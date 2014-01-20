@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.Net;
 
 namespace bootstraptest01
 {
@@ -73,7 +75,35 @@ namespace bootstraptest01
 
         protected void ButtonSendMessage_Click1(object sender, EventArgs e)
         {
-            var message = "You Clicked send";
+            //bool emailIsSent = SendEmail("");
         }
+
+        private bool SendEmail(string recipient)
+        {
+            bool emailSend = false;
+            try
+            {
+                var mailMessage = new MailMessage("blombas@gmail.com", "anders@blomqvist.nu");
+                mailMessage.Subject = "Dette er en test";
+                mailMessage.Body = "Dette er kroppen12345";
+
+                using (SmtpClient mailer = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    mailer.EnableSsl = true;
+                    mailer.UseDefaultCredentials = false;
+                    mailer.Credentials = new NetworkCredential("blombas@gmail.com", "Solidstate1");
+                    mailer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    mailer.Send(mailMessage);
+                }
+                emailSend = true;
+            }
+            catch (Exception)
+            {
+               
+            }
+            return emailSend;
+        }
+
+        
     }
 }

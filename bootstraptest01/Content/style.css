@@ -6,6 +6,9 @@
 } 
 
 /*------typo -----------*/
+.my-background {
+    background-color: white;
+}
 
 h1,
 h2,
@@ -49,8 +52,8 @@ a {
 
 .eventlist {
 
-  margin-left: 1em;
-  margin-right:1em;
+  margin-left: 4em;
+  margin-right:4em;
   margin-top: 3em;
 }
 

@@ -11,7 +11,7 @@
        
         <br />
         <div class="form-group">
-        <p class="form-group-label"><strong>Email</strong></p>
+        <p class="form-group-label"><strong>Username</strong></p>
         <asp:TextBox runat="server" id="TextBoxEmail" CssClass="form-control"/>
         </div>
         <div class="form-group">

@@ -26,20 +26,23 @@ namespace bootstraptest01.Account
                 continueUrl = "~/";
             }
 
-            MembershipUser newMember = Membership.GetUser(RegisterUser.UserName);
-            var id = newMember.ProviderUserKey.ToString();
-            var mail = newMember.Email.ToString();
-            WalkDatingDataContext context = new WalkDatingDataContext();
-            var user = new User
+            MembershipUser newMember = Membership.GetUser(RegisterUser.UserName); 
+            if (newMember != null && newMember.ProviderUserKey != null)
             {
-                Mail = mail,
-                UniqueId = id
-            };
+                var id = newMember.ProviderUserKey.ToString();
+                string mail = newMember.Email;
+                var context = new WalkDatingDataContext();
+                var user = new User
+                {
+                    Mail = mail,
+                    UniqueId = id
+                };
 
-            context.Users.InsertOnSubmit(user);
-            context.SubmitChanges();
+                context.Users.InsertOnSubmit(user);
+                context.SubmitChanges();
+            }
 
-            Response.Redirect(continueUrl);
-        }
+                Response.Redirect(continueUrl);
+        }  
     }
 }
