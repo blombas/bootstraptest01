@@ -1,4 +1,10 @@
 /* Make something awesome! */
+body{
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: white;
+   }
 
 .container-fluid {
   
@@ -33,7 +39,7 @@ h6 {
 
 
 .page-header {
-  border-bottom: 1pxpx solid #86b5ae;
+  border-bottom: 1px solid #86b5ae;
 }
 
 a {
@@ -224,4 +230,8 @@ ul.list-group {
 
 text-decoration: none;
 
+}
+
+.wuc-event {
+    margin-bottom: 2em;
 }

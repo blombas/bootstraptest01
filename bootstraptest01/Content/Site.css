@@ -3,7 +3,9 @@
 /*------------------ The navbar overlaps the body onless it has some padding. the padding is removed on mobil devices------*/
 
 body{
-    padding-top: 5em;
+    padding-top: 7em;
+    padding-left: 10em;
+    padding-right: 10em;
     background-color: white;
    }
 
