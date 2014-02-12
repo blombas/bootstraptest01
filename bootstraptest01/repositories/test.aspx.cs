@@ -9,15 +9,14 @@ namespace bootstraptest01.repositories
 {
     public partial class test : System.Web.UI.Page
     {
+        WalkDatingDataContext myContext = new WalkDatingDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string mail = "anders@blomqvist.nu";
-            int id = 1;
-            var userList = new List<User>();
-            
-            var myRepo = new UserRepository();
-            User uuu = myRepo.GetBy(id);
-            userList.Add(uuu);
+            UserRepository ur = new UserRepository(myContext, true);
+            var myRepo = new EventRepository(myContext, true);
+            User uuu = ur.GetBy(1);
+            var userList = myRepo.getFor(uuu);
+
 
 
             GridView1.DataSource = userList;

@@ -337,6 +337,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repositories\EventRepository.cs" />
+    <Compile Include="repositories\IEventRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\IUserRepository.cs" />
     <Compile Include="repositories\LinqToSqlRepository.cs" />

@@ -10,7 +10,7 @@ using Microsoft.Ajax.Utilities;
 
 namespace bootstraptest01.repositories
 {
-    public interface IRepository<T> 
+    public interface IRepository<T> : IDisposable where T : class
     {
         IQueryable<T> All();
 

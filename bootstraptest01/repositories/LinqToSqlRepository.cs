@@ -13,11 +13,16 @@ namespace bootstraptest01.repositories
     public class LinqToSqlRepository<T> : IRepository<T> where T: class
     {
         protected WalkDatingDataContext Context;
+        protected readonly bool SharedContext;
 
-        public LinqToSqlRepository()
+        public LinqToSqlRepository(WalkDatingDataContext context) : this(context, false) { }
+        public LinqToSqlRepository(WalkDatingDataContext context, bool sharedContext)
         {
-            Context = new WalkDatingDataContext();
+            Context = context;
+            SharedContext = sharedContext;
         }
+
+       
         public IQueryable<T> All()
         {
             return Context.GetTable<T>().AsQueryable();
@@ -26,7 +31,9 @@ namespace bootstraptest01.repositories
         public T Create(T t)
         {
             Context.GetTable<T>().InsertOnSubmit(t);
-            Context.SubmitChanges();
+
+            if(!SharedContext)
+                Context.SubmitChanges();
             return t;
         }
 
@@ -69,19 +76,35 @@ namespace bootstraptest01.repositories
             Save();
         }
 
+        public void Dispose()
+        {
+            if (!SharedContext && Context != null)
+            {
+                try
+                {
+                    Context.Dispose();
+                }
+                catch { }            
+            }
+        }
+
+
         private void Save()
         {
-            try
+            if (!SharedContext)
             {
-                Context.SubmitChanges(ConflictMode.ContinueOnConflict);
-            }
-            catch (ChangeConflictException e)
-            {
-                foreach (ObjectChangeConflict occ in Context.ChangeConflicts)
+                try
                 {
-                    occ.Resolve(RefreshMode.KeepChanges);
+                    Context.SubmitChanges(ConflictMode.ContinueOnConflict);
                 }
-            }
-        } 
+                catch (ChangeConflictException e)
+                {
+                    foreach (ObjectChangeConflict occ in Context.ChangeConflicts)
+                    {
+                        occ.Resolve(RefreshMode.KeepChanges);
+                    }
+                }
+            }         
+        }
     }
 }
