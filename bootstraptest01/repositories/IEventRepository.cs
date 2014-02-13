@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bootstraptest01.repositories
 {
-    interface IEventRepository : IRepository<Event>
+    public interface IEventRepository : IRepository<Event>
     {
         Event GetBy(int id);
 

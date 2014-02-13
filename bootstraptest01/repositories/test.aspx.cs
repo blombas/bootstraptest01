@@ -4,23 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using bootstraptest01.Services;
 
 namespace bootstraptest01.repositories
 {
     public partial class test : System.Web.UI.Page
     {
-        WalkDatingDataContext myContext = new WalkDatingDataContext();
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserRepository ur = new UserRepository(myContext, true);
-            var myRepo = new EventRepository(myContext, true);
-            User uuu = ur.GetBy(1);
-            var userList = myRepo.getFor(uuu);
+           Context context = new Context();
+           //UserService us = new UserService(context);
+           // us.Create("niel", "dfgh", "anders@karlos.nu");
 
-
-
-            GridView1.DataSource = userList;
-            GridView1.DataBind();
+            EventService es = new EventService(context);
+            es.Create("Dette er en headline test for en event");
         }
     }
 }

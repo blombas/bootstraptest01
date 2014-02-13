@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WalkDating">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="WalkDating">
   <DataContextMoniker Name="/WalkDatingDataContext" />
   <nestedChildShapes>
     <classShape Id="2d00081a-6219-4421-acae-7cdb3becef9f" absoluteBounds="4.375, 1.5, 2, 3.1170068359375">
@@ -34,16 +34,16 @@
         <classShapeMoniker Id="4ee1a6a6-6dc9-46ad-b382-be8c4ae718f2" />
       </nodes>
     </associationConnector>
-    <classShape Id="5ca1e294-ab15-4865-b200-2898eb0973c9" absoluteBounds="4.5, 5.125, 2, 2.5401025390625">
+    <classShape Id="1d89f611-ae9c-44f8-b931-b7a81d4a3ee9" absoluteBounds="1.75, 5.25, 2, 3.1170068359375">
       <DataClassMoniker Name="/WalkDatingDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="7332cf81-146a-4e42-bf63-645c86c1e0fe" absoluteBounds="4.515, 5.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="16fb1e4d-02fe-441b-a92c-56652f1553f8" absoluteBounds="1.7650000000000001, 5.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.5 : 6.39505126953125); (8.25 : 6.39505126953125); (8.25 : 4.5112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.75 : 6.80850341796875); (8.25 : 6.80850341796875); (8.25 : 4.5112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WalkDatingDataContext/User/User_UserEvent" />
       <nodes>
-        <classShapeMoniker Id="5ca1e294-ab15-4865-b200-2898eb0973c9" />
+        <classShapeMoniker Id="1d89f611-ae9c-44f8-b931-b7a81d4a3ee9" />
         <classShapeMoniker Id="4ee1a6a6-6dc9-46ad-b382-be8c4ae718f2" />
       </nodes>
     </associationConnector>

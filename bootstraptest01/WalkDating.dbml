@@ -49,7 +49,10 @@
       <Column Name="Gender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MobilPhone" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Newsletter" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UniqueId" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UniqueId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="User_UserEvent" Member="UserEvents" ThisKey="UserId" OtherKey="UserId" Type="UserEvent" />
     </Type>
   </Table>
