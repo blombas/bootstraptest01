@@ -7,18 +7,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Net;
+using bootstraptest01.repositories;
+using bootstraptest01.Services;
 
 namespace bootstraptest01
 {
     public partial class bootstraptest1master : System.Web.UI.MasterPage
     {
-
+        private SessionHelper session;
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
 
         protected void Page_Init(object sender, EventArgs e)
         {
+
+            session = SessionHelper.Current;
+
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
@@ -70,8 +75,22 @@ namespace bootstraptest01
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            HandleLoginStatus();
+        }
 
-        } 
+        private void HandleLoginStatus()
+        {
+            if (session.User != null)
+            {
+                LiteralUsername.Text = session.User.UserName;
+                LinkLoginStatus.Text = "Logout";
+            }
+            else
+            {
+                LiteralUsername.Text = "";
+                LinkLoginStatus.Text = "Login";
+            }
+        }
 
         protected void ButtonSendMessage_Click1(object sender, EventArgs e)
         {
@@ -104,6 +123,18 @@ namespace bootstraptest01
             return emailSend;
         }
 
-        
+        protected void LinkLoginStatus_Click(object sender, EventArgs e)
+        {
+            if (LinkLoginStatus.Text == "Login")
+            {
+                Response.Redirect("Account/Login.aspx");
+            }
+            else
+            {
+                Session.Abandon();
+                LiteralUsername.Text = "";
+                LinkLoginStatus.Text = "Login";
+            }
+        }  
     }
 }

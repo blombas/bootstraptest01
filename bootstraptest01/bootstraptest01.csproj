@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -215,6 +216,7 @@
     <Content Include="repositories\test.aspx" />
     <Content Include="WucEvent.ascx" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram3.cd" />
     <None Include="Properties\PublishProfiles\ahbdate.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -355,8 +357,11 @@
     <Compile Include="repositories\UserRepository.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IEventService.cs" />
+    <Compile Include="Services\ISecurityService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\SecurityService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\SessionHelper.cs" />
     <Compile Include="WalkDating.cs">
       <DependentUpon>WalkDating.dbml</DependentUpon>
     </Compile>

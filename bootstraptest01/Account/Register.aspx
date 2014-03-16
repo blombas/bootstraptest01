@@ -1,27 +1,14 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/bootstraptest1master.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="bootstraptest01.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="FeaturedProducts">
-   
+    <asp:Panel ID="Panel1" runat="server" DefaultButton="ButtonRegister">
     <div class="login-form container">
         <div class="form-signin">
             
-                <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser">
-        <LayoutTemplate>
-            <asp:PlaceHolder runat="server" ID="wizardStepPlaceholder" />
-            <asp:PlaceHolder runat="server" ID="navigationPlaceholder" />
-        </LayoutTemplate>
-        <WizardSteps>
-            <asp:CreateUserWizardStep runat="server" ID="RegisterUserWizardStep">
-                <ContentTemplate>
-                    <%-- <h2 class="form-signin-heading text-">Register</h2>
-                    <p class="">
-                        Passwords are required to be a minimum of <%: Membership.MinRequiredPasswordLength %> characters in length.
-                    </p>--%>
-
                     <p class="validation-summary-errors">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
-                    <fieldset>
+                 
                         <h2 class="form-signin-heading text-info">Registration</h2>
                         <br />
                                 <div class="form-group">
@@ -52,17 +39,12 @@
                                      CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                                      CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
-                                    </div>
+                                </div>
                          
-                        <asp:Button ID="Button1" runat="server" CommandName="MoveNext" Text="Register"  CssClass="btn btn-lg  btn-block btn-custom-spin" />
-                    </fieldset>
-                </ContentTemplate>
-                <CustomNavigationTemplate />
-            </asp:CreateUserWizardStep>
-        </WizardSteps>
-    </asp:CreateUserWizard>
+                        <asp:Button ID="ButtonRegister" runat="server" CommandName="MoveNext" Text="Register"  CssClass="btn btn-lg  btn-block btn-custom-spin" OnClick="ButtonRegister_Click" />
+         
 
+            </div>
         </div>
-    </div>
-
+    </asp:Panel>
 </asp:Content>

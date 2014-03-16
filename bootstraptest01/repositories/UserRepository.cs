@@ -15,9 +15,9 @@ namespace bootstraptest01.repositories
             return Find(u => u.UserId == id);
         }
 
-        public User GetBy(string mail)
+        public User GetBy(string userName)
         {
-            return Find(u => u.Mail == mail);
+            return Find(u => u.UserName == userName);
         }
     }
 }

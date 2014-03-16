@@ -3,46 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using bootstraptest01.repositories;
+using bootstraptest01.Services;
 using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace bootstraptest01.Account
 {
+    // TODO: remember to clean table column "Mail and UniuqueId" membershibTables are not used anymore
     public partial class Register : Page
     {
+        private SessionHelper session;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            session= SessionHelper.Current;
         }
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+        protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (!OpenAuth.IsLocalUrl(continueUrl))
+            if (IsValid)
             {
-                continueUrl = "~/";
-            }
-
-            MembershipUser newMember = Membership.GetUser(RegisterUser.UserName); 
-            if (newMember != null && newMember.ProviderUserKey != null)
-            {
-                var id = newMember.ProviderUserKey.ToString();
-                string mail = newMember.Email;
-                var context = new WalkDatingDataContext();
-                var user = new User
+                if (!session.Security.DoesUserExist(UserName.Text))
                 {
-                    Mail = mail,
-                    UniqueId = id
-                };
-
-                context.Users.InsertOnSubmit(user);
-                context.SubmitChanges();
+                    var user = session.Security.CreateUser(UserName.Text, Password.Text, Email.Text, true);
+                    session.User = user;
+                    Response.Redirect("../Default.aspx");
+                }
             }
-
-                Response.Redirect(continueUrl);
-        }  
+            else
+            {
+                ErrorMessage.Text = "Username already exist, please choose another.";
+            }
+        }
     }
 }
