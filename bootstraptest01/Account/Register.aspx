@@ -11,30 +11,35 @@
                  
                         <h2 class="form-signin-heading text-info">Registration</h2>
                         <br />
-                                <div class="form-group">
-                                <asp:Label ID="Label1" runat="server" CssClass="form-group-label" AssociatedControlID="UserName">User name</asp:Label>
-                                <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
-                                    CssClass="field-validation-error" ErrorMessage="The user name field is required." />
-                            </div>
-                           
+            
+            
                                 <div class="form-group">
                                 <asp:Label ID="Label2" runat="server" CssClass="form-group-label" AssociatedControlID="Email">Email address</asp:Label>
-                                <asp:TextBox runat="server" ID="Email" TextMode="Email"  CssClass="form-control"/>
+                                <asp:TextBox runat="server" ID="Email" TextMode="Email"  CssClass="form-control" AutoCompleteType="Disabled"/>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Email"
                                     CssClass="field-validation-error" ErrorMessage="The email address field is required." />
                                     </div>
+            
+
+                                <div class="form-group">
+                                <asp:Label ID="Label1" runat="server" CssClass="form-group-label" AssociatedControlID="UserName">User name</asp:Label>
+                                <asp:TextBox runat="server" ID="UserName" CssClass="form-control" AutoCompleteType="Disabled"/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
+                                    CssClass="field-validation-error" ErrorMessage="The user name field is required." />
+                                </div>
+                           
+                                
                             
                                 <div class="form-group">
                                 <asp:Label ID="Label3" runat="server" CssClass="form-group-label" AssociatedControlID="Password">Password</asp:Label>
-                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" AutoCompleteType="Disabled" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Password"
                                     CssClass="field-validation-error" ErrorMessage="The password field is required." />
                                     </div>
                            
                                 <div class="form-group">
                                 <asp:Label ID="Label4" runat="server" CssClass="form-group-label" AssociatedControlID="ConfirmPassword">Confirm password</asp:Label>
-                                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password"  CssClass="form-control"/>
+                                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password"  CssClass="form-control" AutoCompleteType="Disabled"/>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ConfirmPassword"
                                      CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"

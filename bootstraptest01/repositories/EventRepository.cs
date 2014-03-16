@@ -33,7 +33,7 @@ namespace bootstraptest01.repositories
 
         public void AddFor(Event ev, User user)
         {
-            UserEvent ue = new UserEvent { EventId = ev.EventId, UserId = user.UserId };
+            var ue = new UserEvent { EventId = ev.EventId, UserId = user.UserId };
             user.UserEvents.Add(ue);
             if (!SharedContext)
                 Context.SubmitChanges();

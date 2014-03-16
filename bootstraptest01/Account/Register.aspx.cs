@@ -12,7 +12,7 @@ using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace bootstraptest01.Account
 {
-    // TODO: remember to clean table column "Mail and UniuqueId" membershibTables are not used anymore
+    // TODO: Use salt in password user table, see article on evernote
     public partial class Register : Page
     {
         private SessionHelper session;

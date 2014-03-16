@@ -20,10 +20,10 @@ namespace bootstraptest01.Account
 
         protected void ButtonLogin_Click(object sender, EventArgs e)
         {
-            if (session.Security.Authenticate(TextBoxEmail.Text, TextBoxPassword.Text))
+            if (session.Security.Authenticate(TextBoxUsername.Text, TextBoxPassword.Text))
             {
-                session.Security.Login(TextBoxEmail.Text);
-                session.User = session.Users.GetBy(TextBoxEmail.Text);
+                session.Security.Login(TextBoxUsername.Text);
+                session.User = session.Users.GetBy(TextBoxUsername.Text);
                 Response.Redirect("../Default.aspx");
             }
             else

@@ -12,15 +12,15 @@
             <br />
             <div class="form-group">
             <p class="form-group-label"><strong>Username</strong></p>
-            <asp:TextBox runat="server" id="TextBoxEmail" CssClass="form-control"/>
+            <asp:TextBox runat="server" id="TextBoxUsername" CssClass="form-control"/>
             </div>
             <div class="form-group">
             <p class="form-group-label"><strong>Password</strong></p>
             <asp:textBox runat="server" id="TextBoxPassword"  CssClass="form-control" TextMode="Password" />
             </div>
-            <label class="checkbox">
+            <%--<label class="checkbox">
               <asp:CheckBox runat="server" ID="CheckBoxRememberMe" type="checkbox" value="remember-me"></asp:CheckBox> Remember me 
-            </label>
+            </label>--%>
             <asp:Button runat="server" ID="ButtonLogin" Text="Login" CssClass="btn btn-lg  btn-block btn-custom-spin" type="submit" OnClick="ButtonLogin_Click"></asp:Button>
           </div>
 

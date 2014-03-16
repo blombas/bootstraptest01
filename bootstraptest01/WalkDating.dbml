@@ -3,8 +3,8 @@
   <Table Name="dbo.Event" Member="Events">
     <Type Name="Event">
       <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Headline" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Hookline" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Headline" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Hookline" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="InfoText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LocationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DateStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -16,6 +16,15 @@
       <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Event_UserEvent" Member="UserEvents" ThisKey="EventId" OtherKey="EventId" Type="UserEvent" />
       <Association Name="Location_Event" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserEvent" Member="UserEvents">
+    <Type Name="UserEvent">
+      <Column Name="UserEventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_UserEvent" Member="Event" ThisKey="EventId" OtherKey="EventId" Type="Event" IsForeignKey="true" />
+      <Association Name="User_UserEvent" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Location" Member="Locations">
@@ -30,29 +39,18 @@
       <Association Name="Location_Event" Member="Events" ThisKey="LocationId" OtherKey="LocationId" Type="Event" />
     </Type>
   </Table>
-  <Table Name="dbo.UserEvent" Member="UserEvents">
-    <Type Name="UserEvent">
-      <Column Name="UserEventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Event_UserEvent" Member="Event" ThisKey="EventId" OtherKey="EventId" Type="Event" IsForeignKey="true" />
-      <Association Name="User_UserEvent" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="FIrstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BirthYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MobilPhone" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Newsletter" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UniqueId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="PassWord" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="User_UserEvent" Member="UserEvents" ThisKey="UserId" OtherKey="UserId" Type="UserEvent" />
     </Type>
   </Table>

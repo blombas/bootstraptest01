@@ -31,13 +31,13 @@ namespace bootstraptest01.Account {
         protected global::System.Web.UI.WebControls.Label LabelError;
         
         /// <summary>
-        /// TextBoxEmail control.
+        /// TextBoxUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxUsername;
         
         /// <summary>
         /// TextBoxPassword control.
@@ -47,15 +47,6 @@ namespace bootstraptest01.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
-        
-        /// <summary>
-        /// CheckBoxRememberMe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxRememberMe;
         
         /// <summary>
         /// ButtonLogin control.
