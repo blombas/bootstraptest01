@@ -13,6 +13,15 @@ namespace bootstraptest01 {
     public partial class WucEvent {
         
         /// <summary>
+        /// HiddenFieldEventId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldEventId;
+        
+        /// <summary>
         /// EventHeading control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace bootstraptest01 {
         protected global::System.Web.UI.WebControls.Button ButtonSignup;
         
         /// <summary>
+        /// EventWarningText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventWarningText;
+        
+        /// <summary>
         /// EventHookline control.
         /// </summary>
         /// <remarks>
@@ -110,5 +128,14 @@ namespace bootstraptest01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventInfoText;
+        
+        /// <summary>
+        /// EventPraticalText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventPraticalText;
     }
 }

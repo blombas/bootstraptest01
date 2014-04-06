@@ -2,49 +2,49 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WalkDating">
   <DataContextMoniker Name="/WalkDatingDataContext" />
   <nestedChildShapes>
-    <classShape Id="e5f7f4d9-78f9-487c-bded-58d5d9bdac9a" absoluteBounds="3.5, 1, 2, 3.1170068359375009">
+    <classShape Id="808c5fb9-a3bf-4461-ae80-15108afb2dd6" absoluteBounds="3.5, 1, 2, 3.3093082682291666">
       <DataClassMoniker Name="/WalkDatingDataContext/Event" />
       <nestedChildShapes>
-        <elementListCompartment Id="4dfe6d4f-d500-4a0a-8399-40cfabbbe499" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0bbf00ef-672e-4774-a9ec-13179a2e9980" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="900cf7c2-9bf3-42fc-b67a-c5a3aea2e5a4" absoluteBounds="6.25, 1.875, 2, 1.3862939453125003">
+    <classShape Id="b5b23ba8-e38f-4a1f-9d45-da419a1148e7" absoluteBounds="6.25, 2, 2, 1.3862939453125003">
       <DataClassMoniker Name="/WalkDatingDataContext/UserEvent" />
       <nestedChildShapes>
-        <elementListCompartment Id="6bc34efd-4f96-459c-be61-76e46fa469c9" absoluteBounds="6.265, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2ca48e73-a35d-443d-80ec-c15876f94c7c" absoluteBounds="6.265, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ca08dd83-5536-4936-972d-ce0b38879e9f" absoluteBounds="0.75, 1.5, 2, 2.1554996744791666">
+    <classShape Id="8052dee0-cdce-4a33-bf0e-43ea406c333c" absoluteBounds="0.75, 1.625, 2, 2.1554996744791666">
       <DataClassMoniker Name="/WalkDatingDataContext/Location" />
       <nestedChildShapes>
-        <elementListCompartment Id="4b65d64a-a040-43c4-a409-3db8a5078a58" absoluteBounds="0.765, 1.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="54c15988-5822-4e8e-ad61-cbb2b13823b3" absoluteBounds="0.765, 2.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c8194058-7a58-436a-a026-bc45ea5e0012" absoluteBounds="3.5, 5.125, 2, 2.7324039713541666">
+    <classShape Id="43a9ce71-e4c9-45cb-895b-6ee561d2ce89" absoluteBounds="3.5, 5.25, 2, 2.7324039713541666">
       <DataClassMoniker Name="/WalkDatingDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="0a8a5dda-7bef-4b14-a5f3-763263aa826f" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b2a15b9d-6aff-496f-84aa-b77b279f0692" absoluteBounds="3.515, 5.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 2.56814697265625); (6.25 : 2.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.69314697265625); (6.25 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WalkDatingDataContext/Event/Event_UserEvent" />
       <nodes>
-        <classShapeMoniker Id="e5f7f4d9-78f9-487c-bded-58d5d9bdac9a" />
-        <classShapeMoniker Id="900cf7c2-9bf3-42fc-b67a-c5a3aea2e5a4" />
+        <classShapeMoniker Id="808c5fb9-a3bf-4461-ae80-15108afb2dd6" />
+        <classShapeMoniker Id="b5b23ba8-e38f-4a1f-9d45-da419a1148e7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.57774983723958); (3.5 : 2.57774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.70274983723958); (3.5 : 2.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WalkDatingDataContext/Location/Location_Event" />
       <nodes>
-        <classShapeMoniker Id="ca08dd83-5536-4936-972d-ce0b38879e9f" />
-        <classShapeMoniker Id="e5f7f4d9-78f9-487c-bded-58d5d9bdac9a" />
+        <classShapeMoniker Id="8052dee0-cdce-4a33-bf0e-43ea406c333c" />
+        <classShapeMoniker Id="808c5fb9-a3bf-4461-ae80-15108afb2dd6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.49120198567708); (7.25 : 6.49120198567708); (7.25 : 3.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.61620198567708); (7.25 : 6.61620198567708); (7.25 : 3.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WalkDatingDataContext/User/User_UserEvent" />
       <nodes>
-        <classShapeMoniker Id="c8194058-7a58-436a-a026-bc45ea5e0012" />
-        <classShapeMoniker Id="900cf7c2-9bf3-42fc-b67a-c5a3aea2e5a4" />
+        <classShapeMoniker Id="43a9ce71-e4c9-45cb-895b-6ee561d2ce89" />
+        <classShapeMoniker Id="b5b23ba8-e38f-4a1f-9d45-da419a1148e7" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

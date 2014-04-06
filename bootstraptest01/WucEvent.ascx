@@ -2,6 +2,7 @@
 
 
 <div class="row wuc-event">
+    <asp:HiddenField ID="HiddenFieldEventId" runat="server" />
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -26,33 +27,35 @@
                   
                     
                   
-                    <h3 class="event-heading pull-left" runat="server" id="EventHeading">Den romantiske have i efter&aring;rets farver</h3>
+                    <h3 class="event-heading pull-left" runat="server" id="EventHeading"></h3>
                     <img src="https://lorempixel.com/175/100" class="pull-center visible-xs img-responsive">
                     <p class="lead event-location text-muted" runat="server" id="location"></p>
                   
                   <ul class="list-group">
-                    <li class="list-group-item" runat="server" id="EventStart">17, oktober, 2013</li>
-                    <li class="list-group-item" runat="server" id="Hour">kl 18:00</li>
-                    <li class="list-group-item" runat="server" id="PriceTag">pris: 150 &nbsp;kr</li>
-                    <li class="list-group-item" runat="server" id="AgeGroup">alder: 30-40 &aring;r</li>
+                    <li class="list-group-item" runat="server" id="EventStart"></li>
+                    <li class="list-group-item" runat="server" id="Hour"></li>
+                    <li class="list-group-item" runat="server" id="PriceTag"></li>
+                    <li class="list-group-item" runat="server" id="AgeGroup"></li>
                     <li class="list-group-item text-info" runat="server">
                         <p runat="server" id="LastSignupDate"></p>
                         <strong runat="server" id="FreeSeats"></strong></li>
                   </ul>
                   <asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld dig" CssClass="btn btn-large btn-custom-spin" OnClick="ButtonSignup_Click" />
-                    
+                  <div class="alert-danger" >
+                      <p id="EventWarningText" runat="server"></p>
+                  </div>  
                 </div>
               </div>
             </div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-6">
-                  <h4 runat="server" id="EventHookline">Den romantiske have er et fantastisk sted</h4>
-                  <p runat="server" id="EventInfoText">Placeat nemo cum veritatis placeat aut modi mollit ullamco quae necessitatibus amet veniam consequatur dicta amet minima soluta voluptate nam molestias eius aliquam minus tempor nostrud deserunt eveniet. Quibusdam incidunt sit numquam veritatis nesciunt nam iure natus, consectetur aliquam nostrud eu anim eum anim incidunt dolorem laborum distinctio error libero elit animi voluptatum, tenetur possimus voluptatibus ipsa animi. Sint eos maxime a deleniti doloribus rem ipsum, ab ducimus consequatur, tempora, doloremque atque dolor voluptatem veritatis aut. Molestias quam nobis harum odit adipisicing incidunt nisi, quos, expedita tempore eiusmod ipsa.</p>
+                  <h4 runat="server" id="EventHookline">Lidt om stedet</h4>
+                  <p runat="server" id="EventInfoText"></p>
                 </div>
                 <div class="col-md-6">
                   <h4>Alt det praktiske</h4>
-                  <p>Porro anim sint sapiente occaecati, quo adipisicing sequi excepteur, ullam ab ratione fugit qui. Maiores irure laboriosam aliquid nobis anim delectus, asperiores consequat, sint non, voluptates corrupti exercitationem quia magni cumque. Voluptatem modi commodi vitae quo nihil fugiat maxime minima officia voluptatibus incididunt.</p>
+                  <p id="EventPraticalText" runat="server"></p>
                 </div>
               </div>
             </div>

@@ -11,6 +11,17 @@ namespace bootstraptest01
 
     public partial class WucEvent : System.Web.UI.UserControl
     {
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                HiddenFieldEventId.Value = value.ToString();
+            }
+        }
+
         private string headLine;
         public string HeadLine
         {
@@ -42,6 +53,29 @@ namespace bootstraptest01
             {
                 infoText = value;
                 EventInfoText.InnerText = value; 
+            }
+        }
+
+        private string practicalText;
+        public string PracticalText
+        {
+            get { return practicalText; }
+            set
+            {
+                practicalText = value;
+                EventPraticalText.InnerText = value;
+            }
+        }
+
+        private string warningText;
+
+        public string WarningText
+        {
+            get { return warningText; }
+            set
+            {
+                warningText = value;
+                EventWarningText.InnerText = value;
             }
         }
 

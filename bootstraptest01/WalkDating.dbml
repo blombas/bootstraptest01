@@ -14,6 +14,7 @@
       <Column Name="NumOfPersons" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SignupDeadline" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PracticalText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Event_UserEvent" Member="UserEvents" ThisKey="EventId" OtherKey="EventId" Type="UserEvent" />
       <Association Name="Location_Event" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
     </Type>

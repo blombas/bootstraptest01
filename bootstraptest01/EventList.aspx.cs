@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using bootstraptest01.Services;
+
 
 namespace bootstraptest01
 {
@@ -31,6 +29,9 @@ namespace bootstraptest01
                 myEvent.AgeLimits = "Alder: " + eee.AgeMin + "-" + eee.AgeMax + " år";
                 myEvent.LastChange = (DateTime)eee.SignupDeadline;
                 myEvent.EventFull = GetFreeSeatsForEvent(eee);
+                myEvent.InfoText = eee.InfoText;
+                myEvent.PracticalText = eee.PracticalText;
+                myEvent.Id = eee.EventId;
 
                 Label1.Controls.Add(myEvent);
             }
@@ -40,7 +41,26 @@ namespace bootstraptest01
         protected void myEvent_SignupForEvent(Object sender, MyEventArgs e)
         {
             WucEvent choosenWucEvent = e.MyWucEvent;
+            
+            if (SessionHelper.Current.User == null)
+            {
+                choosenWucEvent.WarningText = "Du skal logge ind eller registrere dig, \n før du kan tilmelde dig dette arrangement.";
+            }
+            else
+            {
+                if (IsUserSignedUp(choosenWucEvent))
+                {
+                    choosenWucEvent.WarningText = "Du er allerede tilmeldt dette arrangement";
+                }
+            }
 
+        }
+
+        private bool IsUserSignedUp(WucEvent eventChoosen)
+        {
+            return ((from ue in context.UserEvents
+                where ue.UserId == SessionHelper.Current.User.UserId && ue.EventId == eventChoosen.Id
+                select ue).Count()) > 0;
         }
 
         private string GetFreeSeatsForEvent(Event eee)
@@ -83,6 +103,11 @@ namespace bootstraptest01
                 infoText = "Ledige pladser";
             }
             return infoText;
+        }
+
+        protected void ButtonSignupForEvent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

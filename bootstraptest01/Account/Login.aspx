@@ -21,7 +21,7 @@
             <%--<label class="checkbox">
               <asp:CheckBox runat="server" ID="CheckBoxRememberMe" type="checkbox" value="remember-me"></asp:CheckBox> Remember me 
             </label>--%>
-            <asp:Button runat="server" ID="ButtonLogin" Text="Login" CssClass="btn btn-lg  btn-block btn-custom-spin" type="submit" OnClick="ButtonLogin_Click"></asp:Button>
+            <asp:Button runat="server" ID="ButtonLogin" Text="Login" CssClass="btn btn-lg  btn-block btn-custom-spin"  OnClick="ButtonLogin_Click"></asp:Button>
           </div>
 
         </div> <!-- /container -->

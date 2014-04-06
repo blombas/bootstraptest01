@@ -137,6 +137,8 @@ namespace bootstraptest01
 		
 		private System.Nullable<int> _Price;
 		
+		private string _PracticalText;
+		
 		private EntitySet<UserEvent> _UserEvents;
 		
 		private EntityRef<Location> _Location;
@@ -169,6 +171,8 @@ namespace bootstraptest01
     partial void OnSignupDeadlineChanged();
     partial void OnPriceChanging(System.Nullable<int> value);
     partial void OnPriceChanged();
+    partial void OnPracticalTextChanging(string value);
+    partial void OnPracticalTextChanged();
     #endregion
 		
 		public Event()
@@ -418,6 +422,26 @@ namespace bootstraptest01
 					this._Price = value;
 					this.SendPropertyChanged("Price");
 					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PracticalText", DbType="NVarChar(MAX)")]
+		public string PracticalText
+		{
+			get
+			{
+				return this._PracticalText;
+			}
+			set
+			{
+				if ((this._PracticalText != value))
+				{
+					this.OnPracticalTextChanging(value);
+					this.SendPropertyChanging();
+					this._PracticalText = value;
+					this.SendPropertyChanged("PracticalText");
+					this.OnPracticalTextChanged();
 				}
 			}
 		}

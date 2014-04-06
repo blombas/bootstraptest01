@@ -96,19 +96,13 @@ ul.list-group {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #bf523d;
-  background-image: -moz-linear-gradient(top, #bf493d, #bf5f3d);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bf493d), to(#bf5f3d));
-  background-image: -webkit-linear-gradient(top, #bf493d, #bf5f3d);
-  background-image: -o-linear-gradient(top, #bf493d, #bf5f3d);
-  background-image: linear-gradient(to bottom, #bf493d, #bf5f3d);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbf493d', endColorstr='#ffbf5f3d', GradientType=0);
-  border-color: #bf5f3d #bf5f3d #85422a;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #bf5f3d;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  *background-image: linear-gradient(to bottom, #bf493d, #bf5f3d);
+    border-left-color: #bf5f3d;
+    border-right-color: #bf5f3d;
+    border-top-color: #bf5f3d;
+    border-bottom-color: #85422a;
 }
 .btn-custom-spin:hover,
 .btn-custom-spin:focus,
@@ -234,4 +228,8 @@ text-decoration: none;
 
 .wuc-event {
     margin-bottom: 2em;
+}
+
+.alert-danger {
+    padding: 0.5em;
 }

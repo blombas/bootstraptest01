@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="FeaturedProducts" runat="server">
     <div class="eventlist">
         <asp:Label Text="" runat="server" ID="Label1" />
-
-    </div>
-
+        
+        
+</div>
 </asp:Content>
