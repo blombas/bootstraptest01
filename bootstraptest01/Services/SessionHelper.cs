@@ -14,6 +14,7 @@ namespace bootstraptest01.Services
         public IUserService Users; 
         public SecurityService Security;
         public User User;
+        public WucEvent ChoosenEvent;
 
         // private constructor
         private SessionHelper()
@@ -22,6 +23,7 @@ namespace bootstraptest01.Services
             Users = new UserService(Context);
             Security = new SecurityService(Users);
             User = null;
+            ChoosenEvent = null;
         }
 
         // Gets the current session.

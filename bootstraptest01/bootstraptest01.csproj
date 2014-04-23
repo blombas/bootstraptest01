@@ -214,6 +214,7 @@
     <Content Include="packages.config" />
     <Content Include="bootstraptest1master.Master" />
     <Content Include="repositories\test.aspx" />
+    <Content Include="SignupForEvent.aspx" />
     <Content Include="WucEvent.ascx" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram3.cd" />
@@ -362,6 +363,13 @@
     <Compile Include="Services\SecurityService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\SessionHelper.cs" />
+    <Compile Include="SignupForEvent.aspx.cs">
+      <DependentUpon>SignupForEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignupForEvent.aspx.designer.cs">
+      <DependentUpon>SignupForEvent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WalkDating.cs">
       <DependentUpon>WalkDating.dbml</DependentUpon>
     </Compile>

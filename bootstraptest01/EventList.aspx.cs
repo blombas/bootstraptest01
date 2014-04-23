@@ -17,43 +17,55 @@ namespace bootstraptest01
                           orderby ev.DateStart
                           select new {eee = ev, locationName = l.Name}).ToList();
 
-            foreach (var eve in events)
+            if (events.Count > 0)
             {
-                var eee = eve.eee;
-                WucEvent myEvent = (WucEvent)Page.LoadControl("~/WucEvent.ascx");
-                myEvent.SignupForEvent += new MyEventHandler(myEvent_SignupForEvent);
-                myEvent.HeadLine = eee.Headline;
-                myEvent.LocationName = eve.locationName;
-                myEvent.Start = (DateTime)eee.DateStart;
-                myEvent.Price = (int)eee.Price;
-                myEvent.AgeLimits = "Alder: " + eee.AgeMin + "-" + eee.AgeMax + " år";
-                myEvent.LastChange = (DateTime)eee.SignupDeadline;
-                myEvent.EventFull = GetFreeSeatsForEvent(eee);
-                myEvent.InfoText = eee.InfoText;
-                myEvent.PracticalText = eee.PracticalText;
-                myEvent.Id = eee.EventId;
+                foreach (var eve in events)
+                {
+                    var eee = eve.eee;
+                    WucEvent myEvent = (WucEvent) Page.LoadControl("~/WucEvent.ascx");
+                    myEvent.SignupForEvent += new MyEventHandler(myEvent_SignupForEvent);
+                    myEvent.HeadLine = eee.Headline;
+                    myEvent.LocationName = eve.locationName;
+                    myEvent.Start = (DateTime) eee.DateStart;
+                    myEvent.Price = (int) eee.Price;
+                    myEvent.AgeLimits = "Alder: " + eee.AgeMin + "-" + eee.AgeMax + " år";
+                    myEvent.LastChange = (DateTime) eee.SignupDeadline;
+                    myEvent.EventFull = GetFreeSeatsForEvent(eee);
+                    myEvent.InfoText = eee.InfoText;
+                    myEvent.PracticalText = eee.PracticalText;
+                    myEvent.Id = eee.EventId;
 
-                Label1.Controls.Add(myEvent);
+                    Label1.Controls.Add(myEvent);
+                }
             }
 
         }
 
         protected void myEvent_SignupForEvent(Object sender, MyEventArgs e)
         {
+            bool userIsAllowedToSignup = true;
             WucEvent choosenWucEvent = e.MyWucEvent;
             
             if (SessionHelper.Current.User == null)
             {
                 choosenWucEvent.WarningText = "Du skal logge ind eller registrere dig, \n før du kan tilmelde dig dette arrangement.";
+                userIsAllowedToSignup = false;
             }
+
             else
             {
                 if (IsUserSignedUp(choosenWucEvent))
                 {
                     choosenWucEvent.WarningText = "Du er allerede tilmeldt dette arrangement";
+                    userIsAllowedToSignup = false;
                 }
             }
 
+            if (userIsAllowedToSignup)
+            {
+                SessionHelper.Current.ChoosenEvent = choosenWucEvent;
+                Response.Redirect("SignupForEvent.aspx");
+            }
         }
 
         private bool IsUserSignedUp(WucEvent eventChoosen)

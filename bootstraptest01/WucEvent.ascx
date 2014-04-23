@@ -41,8 +41,7 @@
                         <strong runat="server" id="FreeSeats"></strong></li>
                   </ul>
                   <asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld dig" CssClass="btn btn-large btn-custom-spin" OnClick="ButtonSignup_Click" />
-                  <div class="alert-danger" >
-                      <p id="EventWarningText" runat="server"></p>
+                  <div class="alert-danger" id="EventWarningText" runat="server" Visible="false">
                   </div>  
                 </div>
               </div>

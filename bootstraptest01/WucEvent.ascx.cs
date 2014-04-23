@@ -76,8 +76,10 @@ namespace bootstraptest01
             {
                 warningText = value;
                 EventWarningText.InnerText = value;
+                EventWarningText.Visible = true;
             }
-        }
+        }   
+
 
         private DateTime start;
         public DateTime Start
