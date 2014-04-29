@@ -12,8 +12,8 @@ namespace bootstraptest01.repositories
         public Context(WalkDatingDataContext context = null, IUserRepository users = null, IEventRepository events = null)
         {
             db = context ?? new WalkDatingDataContext();
-            Users = users ?? new UserRepository(db,true);
-            Events = events ?? new EventRepository(db, true);
+            Users = users ?? new UserRepository(db,false);
+            Events = events ?? new EventRepository(db, false);
         }
 
         public IUserRepository Users

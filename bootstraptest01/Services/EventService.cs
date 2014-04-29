@@ -33,5 +33,15 @@ namespace bootstraptest01.Services
             context.SaveChanges();
             return myEvent;
         }
+
+        public void AddUserEvent(Event choosenEvent, User user)
+        {
+            events.AddFor(choosenEvent,user);
+        }
+
+        public IEnumerable<Event> GetUserEvent(User user)
+        {
+            return events.getFor(user);
+        }
     }
 }

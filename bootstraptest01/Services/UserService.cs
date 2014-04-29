@@ -41,5 +41,11 @@ namespace bootstraptest01.Services
             context.SaveChanges();
             return user;
         }
+
+        public void Save(User user)
+        {
+            users.Update(user);
+            context.SaveChanges();
+        }
     }
 }

@@ -11,7 +11,8 @@ namespace bootstraptest01.Services
     public class SessionHelper
     {
         public IContext Context;
-        public IUserService Users; 
+        public IUserService Users;
+        public IEventService Events;
         public SecurityService Security;
         public User User;
         public WucEvent ChoosenEvent;
@@ -21,6 +22,7 @@ namespace bootstraptest01.Services
         {
             Context = new Context();
             Users = new UserService(Context);
+            Events =  new EventService(Context);
             Security = new SecurityService(Users);
             User = null;
             ChoosenEvent = null;

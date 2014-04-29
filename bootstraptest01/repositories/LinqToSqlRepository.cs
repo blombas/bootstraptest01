@@ -72,7 +72,8 @@ namespace bootstraptest01.repositories
 
         public void Update(T t)
         {
-            Context.GetTable<T>().Attach(t, true);
+            //Context.GetTable<T>().Attach(t);
+            Context.Refresh(RefreshMode.KeepCurrentValues, t);
             Save();
         }
 

@@ -61,6 +61,7 @@ namespace bootstraptest01
                 }
             }
 
+            //TODO: Check if last signupdate is past, actully it should not be possible signup if date is past
             if (userIsAllowedToSignup)
             {
                 SessionHelper.Current.ChoosenEvent = choosenWucEvent;

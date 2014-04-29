@@ -22,13 +22,31 @@ namespace bootstraptest01 {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// ErrorMessage control.
+        /// SignupHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SignupHeader;
+        
+        /// <summary>
+        /// EventLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventLocation;
+        
+        /// <summary>
+        /// EventDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventDate;
         
         /// <summary>
         /// Label1 control.
