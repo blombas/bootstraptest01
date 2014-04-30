@@ -24,12 +24,13 @@
                     <asp:ListItem Selected="false" Value="kvinde">Kvinde</asp:ListItem>  
                 </asp:RadioButtonList>
                 <asp:RequiredFieldValidator ID="RequieredFieldvalidator2" runat="server" ControlToValidate="RadioButtonList1" CssClass="alert-danger alert" ErrorMessage="Vælg kvinde eller mand"></asp:RequiredFieldValidator>
-            </div>
-            <br />           
+            </div>        
             <asp:Button ID="ButtonRegister" runat="server" CommandName="MoveNext" Text="Tilmeld"  CssClass="btn btn-lg  btn-block btn-custom-spin" OnClick="ButtonRegister_Click" />
          
 
         </div>
     </div>
     </asp:Panel>
+    
+    <h2 runat="server" id="AfterSignupMessage" class="alert alert-success text-center" Visible="false" style="margin-top: 15%"></h2>
 </asp:Content>

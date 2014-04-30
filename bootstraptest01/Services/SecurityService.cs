@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.SessionState;
+using System.Security.Cryptography;
 
 namespace bootstraptest01.Services
 {
@@ -24,7 +25,7 @@ namespace bootstraptest01.Services
             if (user == null)
                 return false;
 
-            return Crypto.VerifyHashedPassword(user.PassWord, password);
+            return Crypto.VerifyHashedPassword(user.PassWord, password + user.Salt);
         }
 
         public void Login(User user)
@@ -45,12 +46,21 @@ namespace bootstraptest01.Services
 
         public User CreateUser(string username, string password, string email, bool login = true)
         {
-            var user = users.Create(username, password, email);
+            var salt = GetSalt();
+            var user = users.Create(username, password, salt, email);
            
             if(login)
                 Login(user);
 
             return user;
+        }
+
+        private string GetSalt()
+        {
+            var rng = new RNGCryptoServiceProvider();
+            var saltBytes = new byte[32];
+            rng.GetBytes(saltBytes);
+            return Convert.ToBase64String(saltBytes);
         }
 
         public bool DoesUserExist(string username)

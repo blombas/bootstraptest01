@@ -44,7 +44,12 @@ namespace bootstraptest01
                     SessionHelper.Current.Users.Save(loggedInUser);
                     SessionHelper.Current.Events.AddUserEvent(myEvent, loggedInUser);
                 }
-            }   
+            }
+
+            AfterSignupMessage.InnerText = "Tak for din tilmelding, vi glæder os til at se dig";
+            // TODO: skriv noget om at der er sendt en mail afsted
+            AfterSignupMessage.Visible = true;
+            Panel1.Visible = false;
         }
 
         private bool IsUserAlreadySignedup(User user)

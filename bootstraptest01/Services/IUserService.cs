@@ -10,7 +10,7 @@ namespace bootstraptest01.Services
     {
         User GetBy(int id);
         User GetBy(string userName);
-        User Create(string username, string password, string email);
+        User Create(string username, string password, string salt, string email);
         void Save(User user);
     }
 }

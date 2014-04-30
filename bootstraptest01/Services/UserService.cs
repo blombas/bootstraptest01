@@ -29,14 +29,16 @@ namespace bootstraptest01.Services
             return users.GetBy(userName);
         }
 
-        public User Create(string username, string password, string email)
+        public User Create(string username, string password, string salt, string email)
         {
             var user = new User()
             {
                 UserName = username,
-                PassWord = Crypto.HashPassword(password),
+                Salt = salt,
+                PassWord = Crypto.HashPassword(password + salt),
                 Email = email
             };
+
             users.Create(user);
             context.SaveChanges();
             return user;

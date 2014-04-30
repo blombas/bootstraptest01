@@ -19,15 +19,6 @@
       <Association Name="Location_Event" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserEvent" Member="UserEvents">
-    <Type Name="UserEvent">
-      <Column Name="UserEventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Event_UserEvent" Member="Event" ThisKey="EventId" OtherKey="EventId" Type="Event" IsForeignKey="true" />
-      <Association Name="User_UserEvent" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Location" Member="Locations">
     <Type Name="Location">
       <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -38,6 +29,16 @@
       <Column Name="LocationInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Location_Event" Member="Events" ThisKey="LocationId" OtherKey="LocationId" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserEvent" Member="UserEvents">
+    <Type Name="UserEvent">
+      <Column Name="UserEventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MailState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_UserEvent" Member="Event" ThisKey="EventId" OtherKey="EventId" Type="Event" IsForeignKey="true" />
+      <Association Name="User_UserEvent" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
@@ -51,6 +52,7 @@
       <Column Name="Newsletter" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="PassWord" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Salt" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="User_UserEvent" Member="UserEvents" ThisKey="UserId" OtherKey="UserId" Type="UserEvent" />
     </Type>
