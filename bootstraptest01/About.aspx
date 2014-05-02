@@ -1,6 +1,6 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="bootstraptest01.About" %>
+﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/bootstraptest1master.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="bootstraptest01.About" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<asp:Content ID="Feature" ContentPlaceHolderID="FeaturedProducts" runat="server">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
         <h2>Your app description page.</h2>

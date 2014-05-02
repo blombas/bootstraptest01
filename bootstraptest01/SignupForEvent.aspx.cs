@@ -28,7 +28,7 @@ namespace bootstraptest01
 
         // TODO: Du er nået til at skulle skrive mails til chrisstine og bruger
         // Derefter skal du tjekke mail både ved contact og her ved tilmeldning af event
-        // 
+        // TODO: Husk at der skal laves en recovery af password (email link)
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
             var loggedInUser = SessionHelper.Current.User;

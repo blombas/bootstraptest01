@@ -195,6 +195,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CrudEvent.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="EventList.aspx" />
     <Content Include="Events.aspx" />
@@ -316,6 +317,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CrudEvent.aspx.cs">
+      <DependentUpon>CrudEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrudEvent.aspx.designer.cs">
+      <DependentUpon>CrudEvent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +364,7 @@
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="repositories\UserRepository.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\ISecurityService.cs" />

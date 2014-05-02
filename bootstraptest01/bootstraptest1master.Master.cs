@@ -94,34 +94,16 @@ namespace bootstraptest01
 
         protected void ButtonSendMessage_Click1(object sender, EventArgs e)
         {
-            //bool emailIsSent = SendEmail("");
+            if (Page.IsValid)
+            {
+                var sendersName = TextBoxNameContact.Text;
+                var sendersEmail = TextBoxEmailContact.Text;
+                var sendersMessage = TextBoxMessageContact.Text;
+                bool emailIsSent = EmailService.SendEmail(sendersName, sendersEmail, sendersMessage, EmailTemplate.Contact);
+            }
         }
 
-        private bool SendEmail(string recipient)
-        {
-            bool emailSend = false;
-            try
-            {
-                var mailMessage = new MailMessage("blombas@gmail.com", "anders@blomqvist.nu");
-                mailMessage.Subject = "Dette er en test";
-                mailMessage.Body = "Dette er kroppen12345";
-
-                using (SmtpClient mailer = new SmtpClient("smtp.gmail.com", 587))
-                {
-                    mailer.EnableSsl = true;
-                    mailer.UseDefaultCredentials = false;
-                    mailer.Credentials = new NetworkCredential("blombas@gmail.com", "Solidstate1");
-                    mailer.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    mailer.Send(mailMessage);
-                }
-                emailSend = true;
-            }
-            catch (Exception)
-            {
-               
-            }
-            return emailSend;
-        }
+        
 
         protected void LinkLoginStatus_Click(object sender, EventArgs e)
         {

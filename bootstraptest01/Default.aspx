@@ -9,13 +9,9 @@
         <p>Moderne dating omgivet af naturens sk&oslash;nhed</p>
         <img src="https://lorempixel.com/130/100" class="pull-right visible-xs"/>
         <div class="media">
-          <a class="pull-left" href="#">    <img class="media-object hidden-xs" src="https://lorempixel.com/1800/300/nature"/>  </a>
-          <div class="media-body"></div>
+          <a class="pull-left" href="About.aspx">    <img class="media-object hidden-xs" src="https://lorempixel.com/1800/400/nature"/></a></div>
+           <br />
         </div>
-        <p> <a class="btn btn-lg btn-custom-spin ">Learn more</a> </p>
-      </div>
-
-        
     <!-- main section -->
         <section class="main-content">
 
@@ -37,7 +33,7 @@
             <a class="btn pull-right btn-xs btn-custom-spin">Button Text</a>
           </div>
         </div>
-      </div>
-            
+      </div>      
     </section>
+</div>
 </asp:Content>
