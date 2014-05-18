@@ -30,9 +30,10 @@ namespace bootstraptest01
                     myEvent.Price = (int) eee.Price;
                     myEvent.AgeLimits = "Alder: " + eee.AgeMin + "-" + eee.AgeMax + " år";
                     myEvent.LastChange = (DateTime) eee.SignupDeadline;
-                    myEvent.EventFull = GetFreeSeatsForEvent(eee);
-                    myEvent.InfoText = eee.InfoText;
-                    myEvent.PracticalText = eee.PracticalText;
+                    myEvent.EventLink = eee.EventLink;
+                    //myEvent.EventFull = GetFreeSeatsForEvent(eee);
+                    //myEvent.InfoText = eee.InfoText;
+                   // myEvent.PracticalText = eee.PracticalText;
                     myEvent.Id = eee.EventId;
 
                     Label1.Controls.Add(myEvent);
@@ -76,47 +77,47 @@ namespace bootstraptest01
                 select ue).Count()) > 0;
         }
 
-        private string GetFreeSeatsForEvent(Event eee)
-        {
-            string infoText = "";
-            int male = 0;
-            int female = 0;
+        //private string GetFreeSeatsForEvent(Event eee)
+        //{
+        //    string infoText = "";
+        //    int male = 0;
+        //    int female = 0;
 
-            var userEvents = (from ue in context.UserEvents
-                              join u in context.Users
-                              on ue.UserId equals u.UserId
-                              where ue.EventId == eee.EventId
-                              select u).ToList();
+        //    var userEvents = (from ue in context.UserEvents
+        //                      join u in context.Users
+        //                      on ue.UserId equals u.UserId
+        //                      where ue.EventId == eee.EventId
+        //                      select u).ToList();
 
-            foreach (var user in userEvents)
-            {
-                if (user.Gender == "male")
-                {
-                    male++;
-                }
-                else
-                {
-                    female++;
-                }
-            }
-            if (male >= 10)
-            {
-                infoText = "Plads til kvinder";
-            }
-            else if (female >= 10)
-            {
-                infoText = "Plads til mænd";
-            }
-            else if (male >= 10 && female >= 10)
-            {
-                infoText = "Alle pladser optaget";
-            }
-            else
-            {
-                infoText = "Ledige pladser";
-            }
-            return infoText;
-        }
+        //    foreach (var user in userEvents)
+        //    {
+        //        if (user.Gender == "male")
+        //        {
+        //            male++;
+        //        }
+        //        else
+        //        {
+        //            female++;
+        //        }
+        //    }
+        //    if (male >= 10)
+        //    {
+        //        infoText = "Plads til kvinder";
+        //    }
+        //    else if (female >= 10)
+        //    {
+        //        infoText = "Plads til mænd";
+        //    }
+        //    else if (male >= 10 && female >= 10)
+        //    {
+        //        infoText = "Alle pladser optaget";
+        //    }
+        //    else
+        //    {
+        //        infoText = "Ledige pladser";
+        //    }
+        //    return infoText;
+        //}
 
         protected void ButtonSignupForEvent_Click(object sender, EventArgs e)
         {

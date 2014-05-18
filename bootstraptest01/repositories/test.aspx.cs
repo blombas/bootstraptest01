@@ -14,12 +14,7 @@ namespace bootstraptest01.repositories
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           Context context = new Context();
-           //UserService us = new UserService(context);
-           // us.Create("niel", "dfgh", "anders@karlos.nu");
-
-            EventService es = new EventService(context);
-            es.Create("Dette er en headline test for en event");
+           
         }
     }
 }

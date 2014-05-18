@@ -195,10 +195,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="CrudEvent.aspx" />
+    <Content Include="CreateNewEvent.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="EventList.aspx" />
-    <Content Include="Events.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -212,6 +211,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="MyAdmin.aspx" />
     <Content Include="packages.config" />
     <Content Include="bootstraptest1master.Master" />
     <Content Include="repositories\test.aspx" />
@@ -317,12 +317,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrudEvent.aspx.cs">
-      <DependentUpon>CrudEvent.aspx</DependentUpon>
+    <Compile Include="CreateNewEvent.aspx.cs">
+      <DependentUpon>CreateNewEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CrudEvent.aspx.designer.cs">
-      <DependentUpon>CrudEvent.aspx</DependentUpon>
+    <Compile Include="CreateNewEvent.aspx.designer.cs">
+      <DependentUpon>CreateNewEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -338,15 +338,15 @@
     <Compile Include="EventList.aspx.designer.cs">
       <DependentUpon>EventList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Events.aspx.designer.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MyAdmin.aspx.cs">
+      <DependentUpon>MyAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAdmin.aspx.designer.cs">
+      <DependentUpon>MyAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories\Context.cs" />

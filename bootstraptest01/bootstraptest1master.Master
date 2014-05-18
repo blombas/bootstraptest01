@@ -7,10 +7,8 @@
 	<title>walkdating</title>
 	<meta name="viewport" content="width=device-width"/>
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css"/>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="Content/style.css"/>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet" /> 
-	<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>  
      
 </head>
 
@@ -36,16 +34,16 @@
 			<li>
 			  <a href="#">About</a>
 			</li>
-			<li title="Login|Signup" class="dropdown closed">
+			<%--<li title="Login|Signup" class="dropdown closed">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class=" fa fa-user fa-lg"></i><asp:Literal ID="LiteralUsername" runat="server"/>
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-					<li><asp:LinkButton ID="LinkLoginStatus" runat="server" OnClick="LinkLoginStatus_Click"></asp:LinkButton></li> 
+					<li><asp:LinkButton ID="LinkLoginStatus" ValidateRequestMode="Inherit" runat="server" OnClick="LinkLoginStatus_Click"></asp:LinkButton></li> 
 					<li><a id="A1" runat="server" href="~/Account/Register.aspx">Register</a></li>
 				</ul>
-			</li>
+			</li>--%>
 			<li title="Contact">
 			  <a data-toggle="modal" href="#myModal" class="contact-link"><i class="fa fa-envelope-o fa-lg"></i></a>
 			</li>
@@ -94,6 +92,10 @@
   </div>
 	 <asp:ContentPlaceHolder ID="FeaturedProducts" runat="server"></asp:ContentPlaceHolder>  
 	</form>
+    
+    
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  
 
 </body>
 </html>

@@ -30,9 +30,6 @@ namespace bootstraptest01
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertEvent(Event instance);
-    partial void UpdateEvent(Event instance);
-    partial void DeleteEvent(Event instance);
     partial void InsertLocation(Location instance);
     partial void UpdateLocation(Location instance);
     partial void DeleteLocation(Location instance);
@@ -42,6 +39,9 @@ namespace bootstraptest01
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertEvent(Event instance);
+    partial void UpdateEvent(Event instance);
+    partial void DeleteEvent(Event instance);
     #endregion
 		
 		public WalkDatingDataContext() : 
@@ -74,14 +74,6 @@ namespace bootstraptest01
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Event> Events
-		{
-			get
-			{
-				return this.GetTable<Event>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Location> Locations
 		{
 			get
@@ -105,424 +97,13 @@ namespace bootstraptest01
 				return this.GetTable<User>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Event")]
-	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EventId;
-		
-		private string _Headline;
-		
-		private string _Hookline;
-		
-		private string _InfoText;
-		
-		private System.Nullable<int> _LocationId;
-		
-		private System.Nullable<System.DateTime> _DateStart;
-		
-		private System.Nullable<System.DateTime> _DateEnd;
-		
-		private System.Nullable<int> _AgeMin;
-		
-		private System.Nullable<int> _AgeMax;
-		
-		private System.Nullable<int> _NumOfPersons;
-		
-		private System.Nullable<System.DateTime> _SignupDeadline;
-		
-		private System.Nullable<int> _Price;
-		
-		private string _PracticalText;
-		
-		private EntitySet<UserEvent> _UserEvents;
-		
-		private EntityRef<Location> _Location;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEventIdChanging(int value);
-    partial void OnEventIdChanged();
-    partial void OnHeadlineChanging(string value);
-    partial void OnHeadlineChanged();
-    partial void OnHooklineChanging(string value);
-    partial void OnHooklineChanged();
-    partial void OnInfoTextChanging(string value);
-    partial void OnInfoTextChanged();
-    partial void OnLocationIdChanging(System.Nullable<int> value);
-    partial void OnLocationIdChanged();
-    partial void OnDateStartChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateStartChanged();
-    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateEndChanged();
-    partial void OnAgeMinChanging(System.Nullable<int> value);
-    partial void OnAgeMinChanged();
-    partial void OnAgeMaxChanging(System.Nullable<int> value);
-    partial void OnAgeMaxChanged();
-    partial void OnNumOfPersonsChanging(System.Nullable<int> value);
-    partial void OnNumOfPersonsChanged();
-    partial void OnSignupDeadlineChanging(System.Nullable<System.DateTime> value);
-    partial void OnSignupDeadlineChanged();
-    partial void OnPriceChanging(System.Nullable<int> value);
-    partial void OnPriceChanged();
-    partial void OnPracticalTextChanging(string value);
-    partial void OnPracticalTextChanged();
-    #endregion
-		
-		public Event()
-		{
-			this._UserEvents = new EntitySet<UserEvent>(new Action<UserEvent>(this.attach_UserEvents), new Action<UserEvent>(this.detach_UserEvents));
-			this._Location = default(EntityRef<Location>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EventId
+		public System.Data.Linq.Table<Event> Events
 		{
 			get
 			{
-				return this._EventId;
+				return this.GetTable<Event>();
 			}
-			set
-			{
-				if ((this._EventId != value))
-				{
-					this.OnEventIdChanging(value);
-					this.SendPropertyChanging();
-					this._EventId = value;
-					this.SendPropertyChanged("EventId");
-					this.OnEventIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Headline", DbType="NVarChar(MAX)")]
-		public string Headline
-		{
-			get
-			{
-				return this._Headline;
-			}
-			set
-			{
-				if ((this._Headline != value))
-				{
-					this.OnHeadlineChanging(value);
-					this.SendPropertyChanging();
-					this._Headline = value;
-					this.SendPropertyChanged("Headline");
-					this.OnHeadlineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hookline", DbType="NVarChar(MAX)")]
-		public string Hookline
-		{
-			get
-			{
-				return this._Hookline;
-			}
-			set
-			{
-				if ((this._Hookline != value))
-				{
-					this.OnHooklineChanging(value);
-					this.SendPropertyChanging();
-					this._Hookline = value;
-					this.SendPropertyChanged("Hookline");
-					this.OnHooklineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoText", DbType="NVarChar(MAX)")]
-		public string InfoText
-		{
-			get
-			{
-				return this._InfoText;
-			}
-			set
-			{
-				if ((this._InfoText != value))
-				{
-					this.OnInfoTextChanging(value);
-					this.SendPropertyChanging();
-					this._InfoText = value;
-					this.SendPropertyChanged("InfoText");
-					this.OnInfoTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", DbType="Int")]
-		public System.Nullable<int> LocationId
-		{
-			get
-			{
-				return this._LocationId;
-			}
-			set
-			{
-				if ((this._LocationId != value))
-				{
-					if (this._Location.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLocationIdChanging(value);
-					this.SendPropertyChanging();
-					this._LocationId = value;
-					this.SendPropertyChanged("LocationId");
-					this.OnLocationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateStart
-		{
-			get
-			{
-				return this._DateStart;
-			}
-			set
-			{
-				if ((this._DateStart != value))
-				{
-					this.OnDateStartChanging(value);
-					this.SendPropertyChanging();
-					this._DateStart = value;
-					this.SendPropertyChanged("DateStart");
-					this.OnDateStartChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateEnd
-		{
-			get
-			{
-				return this._DateEnd;
-			}
-			set
-			{
-				if ((this._DateEnd != value))
-				{
-					this.OnDateEndChanging(value);
-					this.SendPropertyChanging();
-					this._DateEnd = value;
-					this.SendPropertyChanged("DateEnd");
-					this.OnDateEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMin", DbType="Int")]
-		public System.Nullable<int> AgeMin
-		{
-			get
-			{
-				return this._AgeMin;
-			}
-			set
-			{
-				if ((this._AgeMin != value))
-				{
-					this.OnAgeMinChanging(value);
-					this.SendPropertyChanging();
-					this._AgeMin = value;
-					this.SendPropertyChanged("AgeMin");
-					this.OnAgeMinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMax", DbType="Int")]
-		public System.Nullable<int> AgeMax
-		{
-			get
-			{
-				return this._AgeMax;
-			}
-			set
-			{
-				if ((this._AgeMax != value))
-				{
-					this.OnAgeMaxChanging(value);
-					this.SendPropertyChanging();
-					this._AgeMax = value;
-					this.SendPropertyChanged("AgeMax");
-					this.OnAgeMaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumOfPersons", DbType="Int")]
-		public System.Nullable<int> NumOfPersons
-		{
-			get
-			{
-				return this._NumOfPersons;
-			}
-			set
-			{
-				if ((this._NumOfPersons != value))
-				{
-					this.OnNumOfPersonsChanging(value);
-					this.SendPropertyChanging();
-					this._NumOfPersons = value;
-					this.SendPropertyChanged("NumOfPersons");
-					this.OnNumOfPersonsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignupDeadline", DbType="Date")]
-		public System.Nullable<System.DateTime> SignupDeadline
-		{
-			get
-			{
-				return this._SignupDeadline;
-			}
-			set
-			{
-				if ((this._SignupDeadline != value))
-				{
-					this.OnSignupDeadlineChanging(value);
-					this.SendPropertyChanging();
-					this._SignupDeadline = value;
-					this.SendPropertyChanged("SignupDeadline");
-					this.OnSignupDeadlineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
-		public System.Nullable<int> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PracticalText", DbType="NVarChar(MAX)")]
-		public string PracticalText
-		{
-			get
-			{
-				return this._PracticalText;
-			}
-			set
-			{
-				if ((this._PracticalText != value))
-				{
-					this.OnPracticalTextChanging(value);
-					this.SendPropertyChanging();
-					this._PracticalText = value;
-					this.SendPropertyChanged("PracticalText");
-					this.OnPracticalTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_UserEvents", ThisKey="EventId", OtherKey="EventId")]
-		public EntitySet<UserEvent> UserEvents
-		{
-			get
-			{
-				return this._UserEvents;
-			}
-			set
-			{
-				this._UserEvents.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Location", ThisKey="LocationId", OtherKey="LocationId", IsForeignKey=true)]
-		public Location Location
-		{
-			get
-			{
-				return this._Location.Entity;
-			}
-			set
-			{
-				Location previousValue = this._Location.Entity;
-				if (((previousValue != value) 
-							|| (this._Location.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Location.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._Location.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._LocationId = value.LocationId;
-					}
-					else
-					{
-						this._LocationId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Location");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserEvents(UserEvent entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = this;
-		}
-		
-		private void detach_UserEvents(UserEvent entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = null;
 		}
 	}
 	
@@ -774,9 +355,9 @@ namespace bootstraptest01
 		
 		private int _MailState;
 		
-		private EntityRef<Event> _Event;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Event> _Event;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -794,8 +375,8 @@ namespace bootstraptest01
 		
 		public UserEvent()
 		{
-			this._Event = default(EntityRef<Event>);
 			this._User = default(EntityRef<User>);
+			this._Event = default(EntityRef<Event>);
 			OnCreated();
 		}
 		
@@ -887,40 +468,6 @@ namespace bootstraptest01
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
-		public Event Event
-		{
-			get
-			{
-				return this._Event.Entity;
-			}
-			set
-			{
-				Event previousValue = this._Event.Entity;
-				if (((previousValue != value) 
-							|| (this._Event.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Event.Entity = null;
-						previousValue.UserEvents.Remove(this);
-					}
-					this._Event.Entity = value;
-					if ((value != null))
-					{
-						value.UserEvents.Add(this);
-						this._EventId = value.EventId;
-					}
-					else
-					{
-						this._EventId = default(int);
-					}
-					this.SendPropertyChanged("Event");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserEvent", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public User User
 		{
@@ -951,6 +498,40 @@ namespace bootstraptest01
 						this._UserId = default(int);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
+		public Event Event
+		{
+			get
+			{
+				return this._Event.Entity;
+			}
+			set
+			{
+				Event previousValue = this._Event.Entity;
+				if (((previousValue != value) 
+							|| (this._Event.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Event.Entity = null;
+						previousValue.UserEvents.Remove(this);
+					}
+					this._Event.Entity = value;
+					if ((value != null))
+					{
+						value.UserEvents.Add(this);
+						this._EventId = value.EventId;
+					}
+					else
+					{
+						this._EventId = default(int);
+					}
+					this.SendPropertyChanged("Event");
 				}
 			}
 		}
@@ -1303,6 +884,449 @@ namespace bootstraptest01
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Event")]
+	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EventId;
+		
+		private string _Headline;
+		
+		private string _Hookline;
+		
+		private string _InfoText;
+		
+		private System.Nullable<int> _LocationId;
+		
+		private System.Nullable<System.DateTime> _DateStart;
+		
+		private System.Nullable<System.DateTime> _DateEnd;
+		
+		private System.Nullable<int> _AgeMin;
+		
+		private System.Nullable<int> _AgeMax;
+		
+		private System.Nullable<int> _NumOfPersons;
+		
+		private System.Nullable<System.DateTime> _SignupDeadline;
+		
+		private System.Nullable<int> _Price;
+		
+		private string _PracticalText;
+		
+		private string _EventLink;
+		
+		private EntitySet<UserEvent> _UserEvents;
+		
+		private EntityRef<Location> _Location;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEventIdChanging(int value);
+    partial void OnEventIdChanged();
+    partial void OnHeadlineChanging(string value);
+    partial void OnHeadlineChanged();
+    partial void OnHooklineChanging(string value);
+    partial void OnHooklineChanged();
+    partial void OnInfoTextChanging(string value);
+    partial void OnInfoTextChanged();
+    partial void OnLocationIdChanging(System.Nullable<int> value);
+    partial void OnLocationIdChanged();
+    partial void OnDateStartChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateStartChanged();
+    partial void OnDateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateEndChanged();
+    partial void OnAgeMinChanging(System.Nullable<int> value);
+    partial void OnAgeMinChanged();
+    partial void OnAgeMaxChanging(System.Nullable<int> value);
+    partial void OnAgeMaxChanged();
+    partial void OnNumOfPersonsChanging(System.Nullable<int> value);
+    partial void OnNumOfPersonsChanged();
+    partial void OnSignupDeadlineChanging(System.Nullable<System.DateTime> value);
+    partial void OnSignupDeadlineChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    partial void OnPracticalTextChanging(string value);
+    partial void OnPracticalTextChanged();
+    partial void OnEventLinkChanging(string value);
+    partial void OnEventLinkChanged();
+    #endregion
+		
+		public Event()
+		{
+			this._UserEvents = new EntitySet<UserEvent>(new Action<UserEvent>(this.attach_UserEvents), new Action<UserEvent>(this.detach_UserEvents));
+			this._Location = default(EntityRef<Location>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EventId
+		{
+			get
+			{
+				return this._EventId;
+			}
+			set
+			{
+				if ((this._EventId != value))
+				{
+					this.OnEventIdChanging(value);
+					this.SendPropertyChanging();
+					this._EventId = value;
+					this.SendPropertyChanged("EventId");
+					this.OnEventIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Headline", DbType="NVarChar(MAX)")]
+		public string Headline
+		{
+			get
+			{
+				return this._Headline;
+			}
+			set
+			{
+				if ((this._Headline != value))
+				{
+					this.OnHeadlineChanging(value);
+					this.SendPropertyChanging();
+					this._Headline = value;
+					this.SendPropertyChanged("Headline");
+					this.OnHeadlineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hookline", DbType="NVarChar(MAX)")]
+		public string Hookline
+		{
+			get
+			{
+				return this._Hookline;
+			}
+			set
+			{
+				if ((this._Hookline != value))
+				{
+					this.OnHooklineChanging(value);
+					this.SendPropertyChanging();
+					this._Hookline = value;
+					this.SendPropertyChanged("Hookline");
+					this.OnHooklineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoText", DbType="NVarChar(MAX)")]
+		public string InfoText
+		{
+			get
+			{
+				return this._InfoText;
+			}
+			set
+			{
+				if ((this._InfoText != value))
+				{
+					this.OnInfoTextChanging(value);
+					this.SendPropertyChanging();
+					this._InfoText = value;
+					this.SendPropertyChanged("InfoText");
+					this.OnInfoTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationId", DbType="Int")]
+		public System.Nullable<int> LocationId
+		{
+			get
+			{
+				return this._LocationId;
+			}
+			set
+			{
+				if ((this._LocationId != value))
+				{
+					if (this._Location.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLocationIdChanging(value);
+					this.SendPropertyChanging();
+					this._LocationId = value;
+					this.SendPropertyChanged("LocationId");
+					this.OnLocationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateStart
+		{
+			get
+			{
+				return this._DateStart;
+			}
+			set
+			{
+				if ((this._DateStart != value))
+				{
+					this.OnDateStartChanging(value);
+					this.SendPropertyChanging();
+					this._DateStart = value;
+					this.SendPropertyChanged("DateStart");
+					this.OnDateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateEnd
+		{
+			get
+			{
+				return this._DateEnd;
+			}
+			set
+			{
+				if ((this._DateEnd != value))
+				{
+					this.OnDateEndChanging(value);
+					this.SendPropertyChanging();
+					this._DateEnd = value;
+					this.SendPropertyChanged("DateEnd");
+					this.OnDateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMin", DbType="Int")]
+		public System.Nullable<int> AgeMin
+		{
+			get
+			{
+				return this._AgeMin;
+			}
+			set
+			{
+				if ((this._AgeMin != value))
+				{
+					this.OnAgeMinChanging(value);
+					this.SendPropertyChanging();
+					this._AgeMin = value;
+					this.SendPropertyChanged("AgeMin");
+					this.OnAgeMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeMax", DbType="Int")]
+		public System.Nullable<int> AgeMax
+		{
+			get
+			{
+				return this._AgeMax;
+			}
+			set
+			{
+				if ((this._AgeMax != value))
+				{
+					this.OnAgeMaxChanging(value);
+					this.SendPropertyChanging();
+					this._AgeMax = value;
+					this.SendPropertyChanged("AgeMax");
+					this.OnAgeMaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumOfPersons", DbType="Int")]
+		public System.Nullable<int> NumOfPersons
+		{
+			get
+			{
+				return this._NumOfPersons;
+			}
+			set
+			{
+				if ((this._NumOfPersons != value))
+				{
+					this.OnNumOfPersonsChanging(value);
+					this.SendPropertyChanging();
+					this._NumOfPersons = value;
+					this.SendPropertyChanged("NumOfPersons");
+					this.OnNumOfPersonsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignupDeadline", DbType="Date")]
+		public System.Nullable<System.DateTime> SignupDeadline
+		{
+			get
+			{
+				return this._SignupDeadline;
+			}
+			set
+			{
+				if ((this._SignupDeadline != value))
+				{
+					this.OnSignupDeadlineChanging(value);
+					this.SendPropertyChanging();
+					this._SignupDeadline = value;
+					this.SendPropertyChanged("SignupDeadline");
+					this.OnSignupDeadlineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PracticalText", DbType="NVarChar(MAX)")]
+		public string PracticalText
+		{
+			get
+			{
+				return this._PracticalText;
+			}
+			set
+			{
+				if ((this._PracticalText != value))
+				{
+					this.OnPracticalTextChanging(value);
+					this.SendPropertyChanging();
+					this._PracticalText = value;
+					this.SendPropertyChanged("PracticalText");
+					this.OnPracticalTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventLink", DbType="NVarChar(MAX)")]
+		public string EventLink
+		{
+			get
+			{
+				return this._EventLink;
+			}
+			set
+			{
+				if ((this._EventLink != value))
+				{
+					this.OnEventLinkChanging(value);
+					this.SendPropertyChanging();
+					this._EventLink = value;
+					this.SendPropertyChanged("EventLink");
+					this.OnEventLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_UserEvent", Storage="_UserEvents", ThisKey="EventId", OtherKey="EventId")]
+		public EntitySet<UserEvent> UserEvents
+		{
+			get
+			{
+				return this._UserEvents;
+			}
+			set
+			{
+				this._UserEvents.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Location_Event", Storage="_Location", ThisKey="LocationId", OtherKey="LocationId", IsForeignKey=true)]
+		public Location Location
+		{
+			get
+			{
+				return this._Location.Entity;
+			}
+			set
+			{
+				Location previousValue = this._Location.Entity;
+				if (((previousValue != value) 
+							|| (this._Location.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Location.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._Location.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._LocationId = value.LocationId;
+					}
+					else
+					{
+						this._LocationId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Location");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = this;
+		}
+		
+		private void detach_UserEvents(UserEvent entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = null;
 		}
 	}
 }

@@ -9,9 +9,9 @@
               <br>
               <div class="row">
                 <div class="hidden-xs col-xs-8 col-md-8 col-lg-8">
-                  <img class="media-object pull-left visible-md img-rounded img-responsive" src="https://lorempixel.com/650/350">
+                  <img class="media-object visible-md img-rounded img-responsive" src="https://lorempixel.com/650/350">
                   <div class="media">
-                    <a class="pull-left" href="#">    <img class="media-object visible-sm img-responsive" src="https://lorempixel.com/700/400">  </a>
+                    <a class="" href="#">    <img class="media-object visible-sm img-responsive" src="https://lorempixel.com/700/400">  </a>
                     <div class="media-body"></div>
                   </div>
                 </div>
@@ -40,21 +40,10 @@
                         <p runat="server" id="LastSignupDate"></p>
                         <strong runat="server" id="FreeSeats"></strong></li>
                   </ul>
-                  <asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld dig" CssClass="btn btn-large btn-custom-spin" OnClick="ButtonSignup_Click" />
+                    <a runat="server" id="SignupLink" class="btn btn-large btn-custom-spin" href="">Tilmeld dig</a>
+                  <%--<asp:Button ID="ButtonSignup" runat="server" Text="Tilmeld dig" CssClass="btn btn-large btn-custom-spin" OnClick="ButtonSignup_Click" />--%>
                   <div class="alert-danger" id="EventWarningText" runat="server" Visible="false">
                   </div>  
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <h4 runat="server" id="EventHookline">Lidt om stedet</h4>
-                  <p runat="server" id="EventInfoText"></p>
-                </div>
-                <div class="col-md-6">
-                  <h4>Alt det praktiske</h4>
-                  <p id="EventPraticalText" runat="server"></p>
                 </div>
               </div>
             </div>

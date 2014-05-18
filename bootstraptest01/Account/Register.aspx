@@ -46,7 +46,7 @@
                                      CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
                                 </div>
                          
-                        <asp:Button ID="ButtonRegister" runat="server" CommandName="MoveNext" Text="Register"  CssClass="btn btn-lg  btn-block btn-custom-spin" OnClick="ButtonRegister_Click" />
+                        <asp:Button ID="ButtonRegister" CausesValidation="False" runat="server" CommandName="MoveNext" Text="Register"  CssClass="btn btn-lg  btn-block btn-custom-spin" OnClick="ButtonRegister_Click" />
          
 
             </div>

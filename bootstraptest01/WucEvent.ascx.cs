@@ -45,27 +45,27 @@ namespace bootstraptest01
         }
 
 
-        private string infoText;
-        public string InfoText
+        private string eventLink;
+        public string EventLink
         {
-            get { return infoText; }
-            set 
+            get { return eventLink; }
+            set
             {
-                infoText = value;
-                EventInfoText.InnerText = value; 
+                eventLink = value;
+                SignupLink.HRef = value;
             }
         }
 
-        private string practicalText;
-        public string PracticalText
-        {
-            get { return practicalText; }
-            set
-            {
-                practicalText = value;
-                EventPraticalText.InnerText = value;
-            }
-        }
+        //private string practicalText;
+        //public string PracticalText
+        //{
+        //    get { return practicalText; }
+        //    set
+        //    {
+        //        practicalText = value;
+        //        EventPraticalText.InnerText = value;
+        //    }
+        //}
 
         private string warningText;
 

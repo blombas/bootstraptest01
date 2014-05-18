@@ -1,8 +1,5 @@
 /* Make something awesome! */
 body{
-    padding-top: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
     background-color: white;
    }
 
@@ -52,14 +49,14 @@ a {
 
 .jumbotron {
 
+    padding-top: 0.5em;
   padding-bottom: 0;
   background-color: #fff;
 }
 
 .eventlist {
 
-  margin-left: 4em;
-  margin-right:4em;
+
   margin-top: 3em;
 }
 
@@ -143,6 +140,7 @@ ul.list-group {
 
 .main-content {
 
+    margin-top: 0;
   padding: 0 1.5em;
 }
 

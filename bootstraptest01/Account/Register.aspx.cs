@@ -24,15 +24,14 @@ namespace bootstraptest01.Account
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
+           
                 if (!session.Security.DoesUserExist(UserName.Text))
                 {
                     var user = session.Security.CreateUser(UserName.Text, Password.Text, Email.Text, true);
                     session.User = user;
                     Response.Redirect("../Default.aspx");
                 }
-            }
+            
             else
             {
                 ErrorMessage.Text = "Username already exist, please choose another.";

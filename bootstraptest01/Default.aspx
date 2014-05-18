@@ -7,14 +7,11 @@
        <div class="jumbotron clearfix">
         <h2>En ny m&aring;de at m&oslash;des p&aring;!</h2>
         <p>Moderne dating omgivet af naturens sk&oslash;nhed</p>
-        <img src="https://lorempixel.com/130/100" class="pull-right visible-xs"/>
         <div class="media">
-          <a class="pull-left" href="About.aspx">    <img class="media-object hidden-xs" src="https://lorempixel.com/1800/400/nature"/></a></div>
-           <br />
+          <a class="pull-left" href="About.aspx"><img class="media-object img-responsive" src="https://lorempixel.com/1600/500/nature"/></a></div>
         </div>
     <!-- main section -->
         <section class="main-content">
-
             <div class="row">
         <div class="text-left col-md-8">
           <h3>Romantisk g&aring;tur hvor du kan m&oslash;de din n&aelig;ste k&aelig;rlighed</h3>
@@ -33,7 +30,7 @@
             <a class="btn pull-right btn-xs btn-custom-spin">Button Text</a>
           </div>
         </div>
-      </div>      
+      </div>          
     </section>
 </div>
 </asp:Content>

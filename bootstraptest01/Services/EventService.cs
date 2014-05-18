@@ -23,12 +23,8 @@ namespace bootstraptest01.Services
             return events.GetBy(id);
         }
 
-        public Event Create(string headLine)
+        public Event Create(Event myEvent)
         {
-            var myEvent= new Event()
-            {
-                Headline = headLine
-            };
             events.Create(myEvent);
             context.SaveChanges();
             return myEvent;

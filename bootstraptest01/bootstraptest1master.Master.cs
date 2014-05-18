@@ -75,22 +75,22 @@ namespace bootstraptest01
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HandleLoginStatus();
+            //HandleLoginStatus();
         }
 
-        private void HandleLoginStatus()
-        {
-            if (session.User != null)
-            {
-                LiteralUsername.Text = session.User.UserName;
-                LinkLoginStatus.Text = "Logout";
-            }
-            else
-            {
-                LiteralUsername.Text = "";
-                LinkLoginStatus.Text = "Login";
-            }
-        }
+        //private void HandleLoginStatus()
+        //{
+        //    if (session.User != null)
+        //    {
+        //        LiteralUsername.Text = session.User.UserName;
+        //        LinkLoginStatus.Text = "Logout";
+        //    }
+        //    else
+        //    {
+        //        LiteralUsername.Text = "";
+        //        LinkLoginStatus.Text = "Login";
+        //    }
+        //}
 
         protected void ButtonSendMessage_Click1(object sender, EventArgs e)
         {
@@ -105,18 +105,19 @@ namespace bootstraptest01
 
         
 
-        protected void LinkLoginStatus_Click(object sender, EventArgs e)
-        {
-            if (LinkLoginStatus.Text == "Login")
-            {
-                Response.Redirect("Account/Login.aspx");
-            }
-            else
-            {
-                Session.Abandon();
-                LiteralUsername.Text = "";
-                LinkLoginStatus.Text = "Login";
-            }
-        }  
+        //protected void LinkLoginStatus_Click(object sender, EventArgs e)
+        //{
+        //    if (LinkLoginStatus.Text == "Login")
+        //    {
+        //        Response.Redirect("Account/Login.aspx");
+        //    }
+        //    else
+        //    {
+        //        Session.Abandon();
+        //        LiteralUsername.Text = "";
+        //        LinkLoginStatus.Text = "Login";
+        //    }
+        //}
+
     }
 }
