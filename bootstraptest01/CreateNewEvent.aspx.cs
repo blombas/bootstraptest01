@@ -13,7 +13,10 @@ namespace bootstraptest01
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (SessionHelper.Current.User == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
